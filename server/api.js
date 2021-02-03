@@ -2,10 +2,10 @@ import { Router } from "express";
 import { Connection } from "./db";
 import { mentorsOnly } from "./middleware/mentorsOnly";
 const router = new Router();
-const bcrypt = require("bcrypt");
-const jwtGenerator = require("./utils/jwtGenerator");
-const validInfo = require("./middleware/validInfo");
-const authorization = require("./middleware/authorization");
+import bcrypt from "bcrypt";
+import jwtGenerator from "./utils/jwtGenerator";
+import validInfo from "./middleware/validInfo";
+import authorization from "./middleware/authorization";
 
 router.get("/", (_, res, next) => {
   Connection.connect((err) => {
@@ -34,8 +34,8 @@ router.get("/", (_, res, next) => {
 
 router.get("/abilities/:id", authorization, mentorsOnly, (req, res) => {
   const userId = Number(req.params.id);
-  const role = req.user.role;
-  const id = req.user.id;
+  const role = req.session.user.role;
+  const id = req.session.user.id;
 
   const queryLo = `select lo.id, lo.skill, description, ability, date_added, a.student_id  from learning_objective lo 
   left join achievements a on lo.id = a.learning_obj_id and a.student_id =$1
@@ -54,8 +54,8 @@ router.get("/abilities/:id", authorization, mentorsOnly, (req, res) => {
 router.get("/learningobjectives/:id/:skill", authorization, (req, res) => {
   const userId = Number(req.params.id);
   const skill = req.params.skill;
-  const role = req.user.role;
-  const id = req.user.id;
+  const role = req.session.user.role;
+  const id = req.session.user.id;
 
   if (role === "Student" && id !== userId) {
     return res.status(401).json("not authorized");
@@ -150,7 +150,7 @@ router.post("/learningobjectives", authorization, mentorsOnly, (req, res) => {
 router.post("/abilities", authorization, async (req, res) => {
   const learning_obj_id = Number(req.body.learning_obj_id);
   const ability = Number(req.body.ability);
-  const student_id = req.user.id;
+  const student_id = req.session.user.id;
   const querySelect = `SELECT * from achievements where learning_obj_id = $1 
                        and student_id = $2  `;
   const queryPost = `INSERT INTO achievements (ability, learning_obj_id, student_id)
@@ -250,8 +250,12 @@ router.post("/register", validInfo, async (req, res) => {
       newUser.rows[0].user_role,
       newUser.rows[0].first_name
     );
-    req.session.user_id = newUser.rows[0].user_id;
-    req.session.user_role = newUser.rows[0].user_role;
+
+    req.session.user = {
+      id: newUser.rows[0].user_id,
+      role: newUser.rows[0].user_role,
+    };
+
     console.log("here is the token");
     res.json({
       token: token,
@@ -286,8 +290,11 @@ router.post("/login", validInfo, async (req, res) => {
     if (!validPassword) {
       return res.status(401).json({ error: "Password or Email is incorrect" });
     }
-    req.session.user_id = user.rows[0].user_id;
-    req.session.user_role = user.rows[0].user_role;
+
+    req.session.user = {
+      id: user.rows[0].user_id,
+      role: user.rows[0].user_role,
+    };
 
     const token = jwtGenerator(
       user.rows[0].user_id,
@@ -310,11 +317,7 @@ router.post("/login", validInfo, async (req, res) => {
 router.get("/verify", authorization, async (req, res) => {
   try {
     console.log("passed the authorization");
-    res.json({
-      id: req.user.id,
-      role: req.user.role,
-      name: req.user.first_name,
-    });
+    res.json(req.session.user);
   } catch (err) {
     console.error("error", err.message);
     res.status(500).send("Server error");
