@@ -15,6 +15,7 @@ RUN npm ci
 COPY ./.babelrc .
 COPY ./client /client
 COPY ./server /server
+RUN touch .env
 
 RUN npm run build
 

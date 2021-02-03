@@ -1,0 +1,67 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:12.18.3
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Set env variables
+          command: echo 'export VERSION=$(echo $CIRCLE_SHA1 | cut -c -7)' >> $BASH_ENV
+      - run:
+          name: Docker build knowledge-checklist
+          command: |
+            docker build -t codeyourfuture/knowledge-checklist:$VERSION --build-arg version=$VERSION .
+            docker tag codeyourfuture/knowledge-checklist:$VERSION codeyourfuture/knowledge-checklist:latest
+      - run:
+          name: Docker login
+          command: echo "$DOCKER_PASS" | docker login -u $DOCKER_USER --password-stdin
+      - run:
+          name: Docker push frontend
+          command: docker push codeyourfuture/knowledge-checklist
+
+  deploy_production:
+    docker:
+      - image: circleci/python:2.7-jessie
+    working_directory: ~/repo
+    steps:
+      - setup_remote_docker
+      - run:
+          name: Set env variables
+          command: echo 'export VERSION=$(echo $CIRCLE_SHA1 | cut -c -7)' >> $BASH_ENV
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+      - run:
+          name: Install kubectl
+          command: |
+            curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+            chmod +x kubectl
+      - run:
+          name: Install gnupg
+          command: sudo apt-get -y install gnupg
+      - run:
+          name: Get kubeconfig
+          command: aws s3 cp s3://$SECRETS_BUCKET/kubectl/config_cyfbot.gpg ./config.gpg
+      - run:
+          name: Decrypt kubeconfig and set KUBECONFIG
+          command: gpg --yes --passphrase="$GPG_KEY" config.gpg
+      - run:
+          name: Update k8s deployments
+          command: |
+            KUBECONFIG=$(pwd)/config ./kubectl set image deployment/knowledge-checklist-dep knowledge-checklist=codeyourfuture/knowledge-checklist:$VERSION
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build:
+          context: build
+      - deploy_production:
+          context: deployments
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
