@@ -250,6 +250,8 @@ router.post("/register", validInfo, async (req, res) => {
       newUser.rows[0].user_role,
       newUser.rows[0].first_name
     );
+    req.session.user_id = newUser.rows[0].user_id;
+    req.session.user_role = newUser.rows[0].user_role;
     console.log("here is the token");
     res.json({
       token: token,
@@ -284,6 +286,8 @@ router.post("/login", validInfo, async (req, res) => {
     if (!validPassword) {
       return res.status(401).json({ error: "Password or Email is incorrect" });
     }
+    req.session.user_id = user.rows[0].user_id;
+    req.session.user_role = user.rows[0].user_role;
 
     const token = jwtGenerator(
       user.rows[0].user_id,

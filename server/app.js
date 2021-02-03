@@ -16,7 +16,7 @@ app.use(
     keys: [process.env.cookieSessionKey],
   })
 );
-
+console.log(process.env.cookieSessionKey);
 const apiRoot = "/api";
 const staticDir = path.join(__dirname, "static");
 

@@ -1,23 +1,21 @@
 const jwt = require("jsonwebtoken");
 
-
 module.exports = async (req, res, next) => {
-    try {
-        const jwtToken =await req.header("token")
-        if (!jwtToken) {
-            return res.status(403).json("not authorized");
-        }
-         console.log("verify endpoint has been hit");
-        const payload = jwt.verify(jwtToken, process.env.jwtSecret);
-        console.log(payload);
-        req.user = payload.user;
-        next();
-        console.log(req.user);
-       
+  try {
+    // const jwtToken =await req.header("token")
+    const userId = req.session.user_id;
+    if (!userId) {
+      return res.status(403).json("not authorized");
     }
-    catch (err) {
-        console.log(err.message)
-        return res.status(403).json("not authorized");
-    }
-}
-    
+
+    req.user = {
+      id: req.session.user_id,
+      role: req.session.user_role,
+    };
+    next();
+    console.log(req.user);
+  } catch (err) {
+    console.log(err.message);
+    return res.status(403).json("not authorized");
+  }
+};
