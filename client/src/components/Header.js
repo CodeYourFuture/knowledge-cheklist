@@ -1,8 +1,6 @@
 import React from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
 
 export default function Header({ editLearningObjectives, logout, back }) {
-  // export default function Header({ editLoImg, back }) {
   return (
     <div className="header">
       <img
@@ -16,15 +14,7 @@ export default function Header({ editLearningObjectives, logout, back }) {
       <a href="/MentorsView">
         <h3 className="signup-link">{back}</h3>
       </a>
-      {/* <a href="/mentorsedit">{editLoImg}</a> */}
       {logout}
-      {/* <a href="/">
-        <img
-          src="https://www.flaticon.com/svg/static/icons/svg/159/159707.svg"
-          alt="logout"
-          className="logout-img"
-        ></img>
-      </a> */}
     </div>
   );
 }

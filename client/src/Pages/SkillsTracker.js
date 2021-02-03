@@ -5,10 +5,7 @@ export default function Html({ skill }) {
   const [learningObjectives, setLearningObjectives] = useState([]);
 
   const fetchLearningObj = () => {
-    const token = window.localStorage.getItem("token");
-    fetch(`/api/learningobjectives/${localStorage.getItem("user")}/${skill}`, {
-      headers: { token },
-    })
+    fetch(`/api/learningobjectives/${localStorage.getItem("user")}/${skill}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.error) {

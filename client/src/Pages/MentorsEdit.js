@@ -8,7 +8,7 @@ import {
 import EditBox from "../components/EditBox";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-// import { skills, skillLabel } from "../components/consts/skillsConst";
+
 
 export default function MentorsEdit() {
   let back = "Students Progress";

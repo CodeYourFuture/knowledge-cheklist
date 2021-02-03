@@ -8,11 +8,9 @@ import { skills, skillLabel } from "../components/consts/skillsConst";
 export default function SkillsNav() {
   let history = useHistory();
   useEffect(() => {
-    const token = window.localStorage.getItem("token");
-    if (!token) {
-      history.push("/");
-    }
-    fetch(`/api/verify`, { headers: { token } })
+
+  
+    fetch(`/api/verify`)
       .then((res) => {
         if (res.status !== 200) {
           history.push("/");

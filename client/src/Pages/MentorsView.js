@@ -12,13 +12,10 @@ function MentorsView() {
   const [studentList, setStudentList] = useState([]);
 
   let history = useHistory();
-  const token = window.localStorage.getItem("token");
+
   useEffect(() => {
-    console.log(token);
-    if (!token) {
-      history.push("/");
-    }
-    fetch(`/api/verify`, { headers: { token } })
+   
+    fetch(`/api/verify`)
       .then((res) => {
         if (res.status !== 200) {
           history.push("/");
@@ -36,7 +33,7 @@ function MentorsView() {
   }, []);
 
   useEffect(() => {
-    fetch(`/api/students`, { headers: { token } })
+    fetch(`/api/students`)
       .then((res) => res.json())
       .then((data) => {
         setStudentList(data);
@@ -56,13 +53,6 @@ function MentorsView() {
     }
   }
   console.log(studentList);
-
-  // let editLoImg =  <img
-  //         className="edit-btn crud"
-  //         src="https://i.ibb.co/nrkVG9b/edit-1.png"
-  //         alt="edit"
-  //         border="0"
-  //       ></img>
   const editLearningObjectives = (
     <a href="/mentorsedit" className="signup-link">
       Edit Learning Objectives
@@ -86,21 +76,6 @@ function MentorsView() {
       </h1>
       <div className="main-container-mentorView">
         <div className="studentName-Container">
-          {/* <ul>
-            {studentList.map(({ user_id, first_name, last_name }) => {
-              return (
-                <li key={user_id} className="students-name">
-                  <Link
-                    to={`./MentorsView?studentId=${user_id}`}
-                    className="name-list"
-                  >
-                    {`${first_name} ${last_name}`}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul> */}
-
           <h2 className="mentor-greet">Students List:</h2>
           <ul className="student-list">
             {studentList.map(({ user_id, first_name, last_name }) => {
