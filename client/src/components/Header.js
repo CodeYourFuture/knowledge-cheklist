@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
 export default function Header({ editLearningObjectives, logout, back }) {
-  const [logoLink, setLogoLink] = useState();
   let location = useLocation();
 
-  useEffect(() => {
-    if (location.pathname.includes("skills")) {
-      setLogoLink("/skills");
-    } else if (location.pathname.includes("Mentors")) {
-      setLogoLink("/MentorsView");
-    }
-  });
+  const logoLink = location.pathname.includes("skills")
+    ? "/skills"
+    : "/MentorsView";
 
   return (
     <div className="header">
