@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-
-export default function AddForm({ getLearningObj }) {
+import React, { useState } from "react";
+import { skills, skillLabel } from "./consts/skillsConst";
+export default function LearningObjectiveAddForm({ getLearningObj }) {
   const token = window.localStorage.getItem("token");
   const initialDescription = {
     skill: "",
@@ -13,7 +13,7 @@ export default function AddForm({ getLearningObj }) {
       [event.target.name]: event.target.value,
     };
     setAddDescription(updateInput);
-    console.log(updateInput);
+ 
   }
   async function hadleSubmit(e) {
     e.preventDefault();
@@ -30,8 +30,6 @@ export default function AddForm({ getLearningObj }) {
       }),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data));
-
     setAddDescription(initialDescription);
     getLearningObj();
   }
@@ -43,14 +41,10 @@ export default function AddForm({ getLearningObj }) {
         <br />
 
         <select name="skill" onChange={handleChange} className="dropdown-skill">
-          <option value="select">Select</option>
-          <option value="html">HTML</option>
-          <option value="css">CSS</option>
-          <option value="git">GIT</option>
-          <option value="javascript">Javascript</option>
-          <option value="react">React</option>
-          <option value="node">Node</option>
-          <option value="sql">SQL</option>
+          <option>Select a skill</option>
+          {skills.map((skill) => (
+            <option value={skill}>{skillLabel(skill)}</option>
+          ))}
         </select>
         <br />
         <label className="input-label">Add your learning objective</label>

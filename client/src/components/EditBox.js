@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-// import fakeData from "../fakeData.json";
-import AddForm from "./AddForm";
+
+import LearningObjectiveAddForm from "./LearningObjectiveAddForm";
+
+
 import { useParams } from "react-router-dom";
 import { skills } from "../components/consts/skillsConst";
 
@@ -138,7 +140,7 @@ export default function EditBox() {
           })}
         </ul>
         <div className="add-btn-container">
-          <AddForm getLearningObj={getLearningObj} />
+          <LearningObjectiveAddForm getLearningObj={getLearningObj} />
         </div>
       </div>
     </div>
