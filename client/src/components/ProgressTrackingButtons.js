@@ -1,7 +1,7 @@
 import React from "react";
 import TrackBtn from "./TrackBtn";
 import "./BtnContainer.css";
-export default function BtnContainer({ ability, updateAbility }) {
+export default function ProgressTrackingButtons({ ability, updateAbility }) {
   return (
     <div className="btn-container">
       <TrackBtn

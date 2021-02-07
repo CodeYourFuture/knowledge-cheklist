@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 
-//import { getMessage } from "./service";
+
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import SignupForm from "./components/SignupForm";
 import LoginForm from "./components/LoginForm";
 import SkillsNav from "./Pages/SkillsNav";
 import Modal from "./components/Modal";
 import MentorsView from "./Pages/MentorsView";
-import MentorsEdit from "./Pages/MentorsEdit";
+import MentorsEditLearningObj from "./Pages/MentorsEditLearningObj";
 
 export function App() {
-  const [message, setMessage] = useState("Loading...");
 
   return (
     <BrowserRouter>
@@ -23,7 +22,10 @@ export function App() {
             <Route path="/skills" component={SkillsNav} />
 
             <Route path="/MentorsView" component={MentorsView} />
-            <Route path="/MentorsEdit/:id?" component={MentorsEdit} />
+            <Route
+              path="/MentorsEditLearningObj/:id?"
+              component={MentorsEditLearningObj}
+            />
           </Switch>
         </div>
       </main>

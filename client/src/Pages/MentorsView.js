@@ -14,7 +14,7 @@ function MentorsView() {
   let history = useHistory();
   const token = window.localStorage.getItem("token");
   useEffect(() => {
-    console.log(token);
+
     if (!token) {
       history.push("/");
     }
@@ -44,7 +44,6 @@ function MentorsView() {
   }, []);
 
   let studentName = "";
-  console.log(studentList);
   const studentId = useQuery().get("studentId");
   if (studentId && studentList) {
     const student = studentList.filter(
@@ -55,16 +54,9 @@ function MentorsView() {
       studentName = `${student.first_name} ${student.last_name}`;
     }
   }
-  console.log(studentList);
-
-  // let editLoImg =  <img
-  //         className="edit-btn crud"
-  //         src="https://i.ibb.co/nrkVG9b/edit-1.png"
-  //         alt="edit"
-  //         border="0"
-  //       ></img>
+ 
   const editLearningObjectives = (
-    <a href="/mentorsedit" className="signup-link">
+    <a href="/MentorsEditLearningObj" className="signup-link">
       Edit Learning Objectives
     </a>
   );
@@ -86,21 +78,6 @@ function MentorsView() {
       </h1>
       <div className="main-container-mentorView">
         <div className="studentName-Container">
-          {/* <ul>
-            {studentList.map(({ user_id, first_name, last_name }) => {
-              return (
-                <li key={user_id} className="students-name">
-                  <Link
-                    to={`./MentorsView?studentId=${user_id}`}
-                    className="name-list"
-                  >
-                    {`${first_name} ${last_name}`}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul> */}
-
           <h2 className="mentor-greet">Students List:</h2>
           <ul className="student-list">
             {studentList.map(({ user_id, first_name, last_name }) => {

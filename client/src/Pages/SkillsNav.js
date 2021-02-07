@@ -59,6 +59,7 @@ export default function SkillsNav() {
 
         <div>
           {skills.map((skill) => (
+          
             <Route
               path={`/skills/${skill}`}
               component={() => <SkillTracker skill={skill} />}
