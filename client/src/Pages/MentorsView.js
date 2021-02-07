@@ -12,13 +12,9 @@ function MentorsView() {
   const [studentList, setStudentList] = useState([]);
 
   let history = useHistory();
-  const token = window.localStorage.getItem("token");
-  useEffect(() => {
 
-    if (!token) {
-      history.push("/");
-    }
-    fetch(`/api/verify`, { headers: { token } })
+  useEffect(() => {
+    fetch(`/api/verify`)
       .then((res) => {
         if (res.status !== 200) {
           history.push("/");
@@ -36,7 +32,7 @@ function MentorsView() {
   }, []);
 
   useEffect(() => {
-    fetch(`/api/students`, { headers: { token } })
+    fetch(`/api/students`)
       .then((res) => res.json())
       .then((data) => {
         setStudentList(data);
@@ -54,7 +50,6 @@ function MentorsView() {
       studentName = `${student.first_name} ${student.last_name}`;
     }
   }
- 
   const editLearningObjectives = (
     <a href="/MentorsEditLearningObj" className="signup-link">
       Edit Learning Objectives

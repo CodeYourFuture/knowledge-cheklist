@@ -15,7 +15,6 @@ export default function Header({ editLearningObjectives, logout, back }) {
         <h3 className="signup-link">{back}</h3>
       </a>
       {logout}
-     
     </div>
   );
 }

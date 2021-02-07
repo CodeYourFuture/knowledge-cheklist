@@ -3,14 +3,9 @@ import { useHistory } from "react-router-dom";
 
 export function useRedirectNonMentors(callBack = () => {}) {
   let history = useHistory();
-  const token = window.localStorage.getItem("token");
 
   useEffect(() => {
-    console.log(token);
-    if (!token) {
-      history.push("/");
-    }
-    fetch(`/api/verify`, { headers: { token } })
+    fetch(`/api/verify`)
       .then((res) => {
         if (res.status !== 200) {
           history.push("/");

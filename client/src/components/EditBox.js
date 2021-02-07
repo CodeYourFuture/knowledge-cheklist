@@ -2,22 +2,16 @@ import React, { useState, useEffect } from "react";
 
 import LearningObjectiveAddForm from "./LearningObjectiveAddForm";
 
-
 import { useParams } from "react-router-dom";
-import { skills } from "../components/consts/skillsConst";
 
 export default function EditBox() {
   let { id } = useParams();
-  // const skills = fakeData[id];
-  const [deleted, setDeleted] = useState(skills);
   const [learningObj, setLearningObj] = useState([]);
   const [updateLO, setUpdateLO] = useState("");
   const [text, setText] = useState("");
 
-  const token = window.localStorage.getItem("token");
-
   const getLearningObj = () => {
-    fetch(`/api/learningobjectives/${id}`, { headers: { token } })
+    fetch(`/api/learningobjectives/${id}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.error) {
@@ -34,9 +28,6 @@ export default function EditBox() {
   const deleteLearningOb = (LearningID) => {
     fetch(`/api/learningobjectives/${LearningID}`, {
       method: "DELETE",
-      headers: {
-        token,
-      },
     }).then(() => {
       let newData = learningObj.filter((p) => p.id !== LearningID);
       setLearningObj(newData);
@@ -52,7 +43,6 @@ export default function EditBox() {
         }),
         headers: {
           "Content-Type": "application/json",
-          token,
         },
       })
         .then((res) => res.json())

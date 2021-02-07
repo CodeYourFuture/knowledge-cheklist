@@ -3,16 +3,25 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import jwsAuth from "./routes/jwtAuth";
-
 import router from "./api";
 import { httpsOnly, logErrors, pushStateRouting } from "./middleware/middleware";
+import cookieSession from "cookie-session";
+var app = express();
 
+ app.set("trust proxy", 1); // trust first proxy
+
+app.use(
+  cookieSession({
+    name: "session",
+    keys: [process.env.cookieSessionKey],
+  })
+);
+console.log(process.env.cookieSessionKey);
 const apiRoot = "/api";
 const staticDir = path.join(__dirname, "static");
 
 
 
-const app = express();
 //Routes
 //register and login rout
 
