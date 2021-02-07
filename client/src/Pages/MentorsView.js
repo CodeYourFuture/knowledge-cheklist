@@ -14,7 +14,6 @@ function MentorsView() {
   let history = useHistory();
 
   useEffect(() => {
-   
     fetch(`/api/verify`)
       .then((res) => {
         if (res.status !== 200) {
@@ -41,7 +40,6 @@ function MentorsView() {
   }, []);
 
   let studentName = "";
-  console.log(studentList);
   const studentId = useQuery().get("studentId");
   if (studentId && studentList) {
     const student = studentList.filter(
@@ -52,9 +50,8 @@ function MentorsView() {
       studentName = `${student.first_name} ${student.last_name}`;
     }
   }
-  console.log(studentList);
   const editLearningObjectives = (
-    <a href="/mentorsedit" className="signup-link">
+    <a href="/MentorsEditLearningObj" className="signup-link">
       Edit Learning Objectives
     </a>
   );

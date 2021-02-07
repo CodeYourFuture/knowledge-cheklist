@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import BtnContainer from "../components/BtnContainer";
+import ProgressTrackingButtons from "../components/ProgressTrackingButtons";
 
 export default function Html({ skill }) {
   const [learningObjectives, setLearningObjectives] = useState([]);
@@ -57,7 +57,7 @@ export default function Html({ skill }) {
             <li key={index}>
               {description}
 
-              <BtnContainer
+              <ProgressTrackingButtons
                 ability={ability}
                 updateAbility={updateAbility}
                 learningObjId={id}
