@@ -14,6 +14,7 @@ app.use(
   cookieSession({
     name: "session",
     keys: [process.env.cookieSessionKey],
+    secureProxy: true,
   })
 );
 console.log(process.env.cookieSessionKey);
