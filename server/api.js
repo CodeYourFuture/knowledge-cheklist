@@ -6,6 +6,7 @@ import bcrypt from "bcrypt";
 import jwtGenerator from "./utils/jwtGenerator";
 import validInfo from "./middleware/validInfo";
 import authorization from "./middleware/authorization";
+import exchangeCodeForGithubUser from "./utils/exchangeCodeForGithubUser";
 
 router.get("/", (_, res, next) => {
   Connection.connect((err) => {
@@ -312,6 +313,19 @@ router.post("/login", validInfo, async (req, res) => {
     console.error(err.message);
     res.status(500).send("server error");
   }
+});
+
+///github authorization
+
+router.get("/githubAuth", async (req, res) => {
+  const githubUser = await exchangeCodeForGithubUser(req.query.code);
+  console.log(githubUser.id);
+  /*
+1- adds github column id to te users table 
+2- try to look up an existing user based on the github id 
+3- if not exists then redirect to the sign up form and we need to put the github user id in the session
+4- if the user id exists, log the user in immediately and redirect based on their roles (mentor/student)
+*/
 });
 
 router.get("/verify", authorization, async (req, res) => {

@@ -54,6 +54,8 @@ export default function LoginForm() {
     }
   }, [isValid]);
 
+  console.log(process.env.github_client_id);
+
   return (
     <div className="login-container">
       <Header />
@@ -93,9 +95,13 @@ export default function LoginForm() {
           <br />
           <div className="signup-prompt">
             <em>Don't have an account? &nbsp;</em>
-            <Link to="/signup" className="register">
+
+            <a
+              href={`https://github.com/login/oauth/authorize?client_id=${process.env.github_client_id}`}
+              className="register"
+            >
               Signup
-            </Link>
+            </a>
           </div>
         </Form>
       </Container>
