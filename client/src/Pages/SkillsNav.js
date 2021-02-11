@@ -19,6 +19,7 @@ export default function SkillsNav() {
       })
       .then((data) => {
         window.localStorage.setItem("role", data.role);
+        window.localStorage.setItem("name", data.name);
         if (data == "not authorized" || data.role == "Mentor") {
           history.push("/");
         }

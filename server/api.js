@@ -318,14 +318,31 @@ router.post("/login", validInfo, async (req, res) => {
 ///github authorization
 
 router.get("/githubAuth", async (req, res) => {
-  const githubUser = await exchangeCodeForGithubUser(req.query.code);
-  console.log(githubUser.id);
-  /*
-1- adds github column id to te users table 
-2- try to look up an existing user based on the github id 
-3- if not exists then redirect to the sign up form and we need to put the github user id in the session
-4- if the user id exists, log the user in immediately and redirect based on their roles (mentor/student)
-*/
+  const { id: githubId } = await exchangeCodeForGithubUser(req.query.code);
+
+  try {
+    const user = await Connection.query(
+      "select * from users where github_id=$1",
+      [githubId]
+    );
+    if (user.rows.length === 0) {
+      // todo- if not exists then redirect to the sign up form and we need to put the github user id in the session
+      // return res.redirect(...);
+    }
+  
+    req.session.user = {
+      id: user.rows[0].user_id,
+      name: user.rows[0].first_name,
+      role: user.rows[0].user_role,
+    };
+
+    res.redirect(
+      req.session.user.role === "Student" ? "/skills" : "/MentorsView"
+    );
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("server error auth");
+  }
 });
 
 router.get("/verify", authorization, async (req, res) => {
