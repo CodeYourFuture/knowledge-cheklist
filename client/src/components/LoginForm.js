@@ -64,43 +64,16 @@ export default function LoginForm() {
       ></img>
 
       <Container className="main-container">
-        <Form onSubmit={handleSubmit} className="login-page">
-          <p className="error">{serverError}</p>
-          <label>Email</label>
-          <input
-            type="email"
-            placeholder="Email"
-            name="userEmail"
-            onChange={handleChange}
-            value={input.userEmail}
-          />
-          {errors.userEmail && <p className="error">*{errors.userEmail} </p>}
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Password"
-            name="userPassword"
-            onChange={handleChange}
-            value={input.userPassword}
-          />
-          {errors.userPassword && (
-            <p className="error">*{errors.userPassword} </p>
-          )}
-          <button className="submit " type="submit" size="lg">
-            Login
-          </button>
-          <br />
-          <div className="signup-prompt">
-            <em>Don't have an account? &nbsp;</em>
+        <div className="signup-prompt">
+          <em>Login with Github</em>
 
-            <a
-              href={`https://github.com/login/oauth/authorize?client_id=${process.env.github_client_id}`}
-              className="register"
-            >
-              Signup
-            </a>
-          </div>
-        </Form>
+          <a
+            href={`https://github.com/login/oauth/authorize?client_id=${process.env.github_client_id}`}
+            className="register"
+          >
+            login/Signup
+          </a>
+        </div>
       </Container>
 
       <Footer />

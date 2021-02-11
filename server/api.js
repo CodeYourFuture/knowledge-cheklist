@@ -326,10 +326,11 @@ router.get("/githubAuth", async (req, res) => {
       [githubId]
     );
     if (user.rows.length === 0) {
-      // todo- if not exists then redirect to the sign up form and we need to put the github user id in the session
-      // return res.redirect(...);
+      req.session.githubId = githubId;
+      const params = new URLSearchParams({ githubUserName }).toString();
+      res.redirect(`/signup?${params}`);
     }
-  
+
     req.session.user = {
       id: user.rows[0].user_id,
       name: user.rows[0].first_name,
