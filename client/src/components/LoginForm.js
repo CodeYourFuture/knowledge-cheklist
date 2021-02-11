@@ -6,7 +6,7 @@ import LoginImage from "../login-image.jpg";
 import useFormValidation from "./useFormValidation";
 import "../App.css";
 import loginValidation from "./loginValidation";
-import { Link, useHistory } from "react-router-dom";
+import {useHistory } from "react-router-dom";
 
 export default function LoginForm() {
   let history = useHistory();
@@ -16,10 +16,7 @@ export default function LoginForm() {
     userPassword: "",
   };
   const {
-    handleChange,
     input,
-    handleSubmit,
-    errors,
     isValid,
   } = useFormValidation(loginValidation, intialState);
 
@@ -54,7 +51,7 @@ export default function LoginForm() {
     }
   }, [isValid]);
 
-  console.log(process.env.github_client_id);
+ 
 
   return (
     <div className="login-container">

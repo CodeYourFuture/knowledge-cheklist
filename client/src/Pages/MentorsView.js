@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import StudentResultsContainer from "../components/StudentResultsContainer";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
+import useQuery from "../components/useQuery"
 
 function MentorsView() {
   const [studentList, setStudentList] = useState([]);
@@ -40,7 +37,7 @@ function MentorsView() {
   }, []);
 
   let studentName = "";
-  const studentId = useQuery().get("studentId");
+  const studentId = useQuery("studentId");
   if (studentId && studentList) {
     const student = studentList.filter(
       (student) => student.user_id == studentId
