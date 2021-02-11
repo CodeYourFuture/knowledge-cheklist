@@ -12,18 +12,10 @@ import Footer from "../components/Footer";
 
 export default function MentorsEdit() {
   let back = "Students Progress";
-  let logout = (
-    <a href="/">
-      <img
-        src="https://www.flaticon.com/svg/static/icons/svg/159/159707.svg"
-        alt="logout"
-        className="logout-img"
-      ></img>
-    </a>
-  );
+ 
   return (
     <Router>
-      <Header logout={logout} back={back} />
+      <Header back={back} />
       <div className="mentorsedit-page"></div>
 
       <div className="edit-display-container">

@@ -1,6 +1,11 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
+export default function Header({ editLearningObjectives, back }) {
+  const location = useLocation();
 
-export default function Header({ editLearningObjectives, logout, back }) {
+  const logout = ()=>{
+  window.localStorage.clear()
+  }
   return (
     <div className="header">
       <img
@@ -14,7 +19,15 @@ export default function Header({ editLearningObjectives, logout, back }) {
       <a href="/MentorsView">
         <h3 className="signup-link">{back}</h3>
       </a>
-      {logout}
+      {location.pathname !== "/" && (
+        <a href="/api/logout" onClick={logout}>
+          <img
+            src="https://www.flaticon.com/svg/static/icons/svg/159/159707.svg"
+            alt="logout"
+            className="logout-img"
+          ></img>
+        </a>
+      )}
     </div>
   );
 }

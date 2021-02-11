@@ -55,19 +55,12 @@ function MentorsView() {
       Edit Learning Objectives
     </a>
   );
-  let logout = (
-    <a href="/">
-      <img
-        src="https://www.flaticon.com/svg/static/icons/svg/159/159707.svg"
-        alt="logout"
-        className="logout-img"
-      ></img>
-    </a>
-  );
+
+
 
   return (
     <div className="mentorsview-page">
-      <Header editLearningObjectives={editLearningObjectives} logout={logout} />
+      <Header editLearningObjectives={editLearningObjectives}  />
       <h1 className="welcome-msg">
         Welcome {window.localStorage.getItem("name")}
       </h1>
