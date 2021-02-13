@@ -213,34 +213,31 @@ router.post("/register", validInfo, async (req, res) => {
     lastName,
     userRole,
     userEmail,
+    github_id,
     userSlack,
-    userPassword,
     userGithub,
     userClassId,
     cyfCity,
   } = req.body;
   try {
     const user = await Connection.query(
-      "SELECT * FROM users WHERE user_email = $1",
-      [userEmail]
+      "SELECT * FROM users WHERE github_id = $1",
+      [github_id]
     );
     if (user.rows.length !== 0) {
       return res.status(401).json({ error: "User already exist!" });
     }
 
-    const salt = await bcrypt.genSalt(10);
-    const bcryptPassword = await bcrypt.hash(userPassword, salt);
-
     let newUser = await Connection.query(
-      "INSERT INTO users (first_name, last_name, user_role,user_email,user_slack,user_password,user_github,class_id, cyf_city)" +
+      "INSERT INTO users (first_name, last_name, user_role,user_email,github_id,user_slack,user_github,class_id, cyf_city)" +
         " VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) returning *",
       [
         firstName,
         lastName,
         userRole,
         userEmail,
+        github_id,
         userSlack,
-        bcryptPassword,
         userGithub,
         userClassId,
         cyfCity,
@@ -255,8 +252,13 @@ router.post("/register", validInfo, async (req, res) => {
     req.session.user = {
       id: newUser.rows[0].user_id,
       role: newUser.rows[0].user_role,
+      name: newUser.rows[0].first_name,
     };
-
+  req.session.user = {
+    id: newUser.rows[0].user_id,
+    role: newUser.rows[0].user_role,
+    name: newUser.rows[0].first_name,
+  };
     console.log("here is the token");
     res.json({
       token: token,
@@ -272,54 +274,14 @@ router.post("/register", validInfo, async (req, res) => {
   }
 });
 
-//login route
-
-router.post("/login", validInfo, async (req, res) => {
-  const { userEmail, userPassword } = req.body;
-  try {
-    const user = await Connection.query(
-      "select * from users where user_email=$1",
-      [userEmail]
-    );
-    if (user.rows.length === 0) {
-      return res.status(401).json({ error: "Email is not registered" });
-    }
-    const validPassword = await bcrypt.compare(
-      userPassword,
-      user.rows[0].user_password
-    );
-    if (!validPassword) {
-      return res.status(401).json({ error: "Password or Email is incorrect" });
-    }
-
-    req.session.user = {
-      id: user.rows[0].user_id,
-      role: user.rows[0].user_role,
-    };
-
-    const token = jwtGenerator(
-      user.rows[0].user_id,
-      user.rows[0].user_role,
-      user.rows[0].first_name
-    );
-    res.json({
-      token: token,
-      message: "login successful",
-      id: user.rows[0].user_id,
-      role: user.rows[0].user_role,
-      name: user.rows[0].first_name,
-    });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send("server error");
-  }
-});
-
 ///github authorization
 
 router.get("/githubAuth", async (req, res) => {
-  const { id: githubId } = await exchangeCodeForGithubUser(req.query.code);
-
+  const {
+    id: githubId,
+    login: githubUserName,
+  } = await exchangeCodeForGithubUser(req.query.code);
+  console.log(req.query, "and", githubUserName);
   try {
     const user = await Connection.query(
       "select * from users where github_id=$1",
@@ -327,7 +289,10 @@ router.get("/githubAuth", async (req, res) => {
     );
     if (user.rows.length === 0) {
       req.session.githubId = githubId;
-      const params = new URLSearchParams({ githubUserName }).toString();
+      const params = new URLSearchParams({
+        githubUserName,
+        githubId,
+      }).toString();
       res.redirect(`/signup?${params}`);
     }
 
@@ -349,11 +314,16 @@ router.get("/githubAuth", async (req, res) => {
 router.get("/verify", authorization, async (req, res) => {
   try {
     console.log("passed the authorization");
+    res.set("cache-control", "no-store");
     res.json(req.session.user);
   } catch (err) {
     console.error("error", err.message);
     res.status(500).send("Server error");
   }
 });
-
+//Logout
+router.all("/logout", (req, res) => {
+  req.session = null;
+  res.redirect("/");
+});
 export default router;
