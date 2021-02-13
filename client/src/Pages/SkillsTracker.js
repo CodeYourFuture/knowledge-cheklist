@@ -3,7 +3,6 @@ import ProgressTrackingButtons from "../components/ProgressTrackingButtons";
 
 export default function Html({ skill }) {
   const [learningObjectives, setLearningObjectives] = useState([]);
-
   const fetchLearningObj = () => {
     fetch(`/api/learningobjectives/${localStorage.getItem("user")}/${skill}`)
       .then((response) => response.json())
