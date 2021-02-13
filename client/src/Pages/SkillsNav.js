@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SkillTracker from "./SkillsTracker";
 import { useHistory, Route, NavLink } from "react-router-dom";
 import Header from "../components/Header";
@@ -7,9 +7,8 @@ import { skills, skillLabel } from "../components/consts/skillsConst";
 
 export default function SkillsNav() {
   let history = useHistory();
+  const [userName, setUserName] = useState({});
   useEffect(() => {
-
-  
     fetch(`/api/verify`)
       .then((res) => {
         if (res.status !== 200) {
