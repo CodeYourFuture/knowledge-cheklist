@@ -9,7 +9,7 @@ export default async function exchangeCodeForGithubUser(code) {
       client_secret: process.env.github_client_secret,
       code,
     }
-  );
+    );
   return (
     await axios.get("https://api.github.com/user", {
       headers: { Authorization: `token ${data.access_token}` },
