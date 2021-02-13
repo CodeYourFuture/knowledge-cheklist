@@ -17,27 +17,24 @@ export default function SkillsNav() {
         return res.json();
       })
       .then((data) => {
-        window.localStorage.setItem("role", data.role);
-        window.localStorage.setItem("name", data.name);
+        setUserName(data);
         if (data == "not authorized" || data.role == "Mentor") {
           history.push("/");
         }
       });
   }, []);
- 
 
   return (
     <div className="skillsnav-page">
       <div>
         <Header />
       </div>
-      <h1 className="welcome-msg">
-        Welcome {window.localStorage.getItem("name")}
-      </h1>
+      <h1 className="welcome-msg">Welcome {userName.name}</h1>
       <div className="skills-main-container">
         <div className="skills-container">
-          {skills.map((skill) => (
+          {skills.map((skill, index) => (
             <NavLink
+            key={index}
               to={`/skills/${skill}`}
               activeClassName="active-skill-display"
               className="default-skill-display"
@@ -48,9 +45,10 @@ export default function SkillsNav() {
         </div>
 
         <div>
-          {skills.map((skill) => (
-          
-            <Route
+          {skills.map((skill, index) => (
+        
+            <Route 
+            key={index}
               path={`/skills/${skill}`}
               component={() => <SkillTracker skill={skill} />}
             />
