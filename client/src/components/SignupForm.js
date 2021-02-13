@@ -5,6 +5,7 @@ import "../App.css";
 import validate from "./SignupValidation";
 import Footer from "./Footer";
 import Header from "./Header";
+import useQuery from "../components/useQuery";
 const SignupForm = () => {
   const [hasRegistered, setHasRegistered] = useState(false);
   const [serverError, setServerError] = useState("");
@@ -14,11 +15,10 @@ const SignupForm = () => {
     lastName: "",
     userRole: "",
     userEmail: "",
-    userPassword: "",
-    confirmPassword: "",
     cyfCity: "",
+    github_id: useQuery("githubId"),
     userClassId: "",
-    userGithub: "",
+    userGithub: useQuery("githubUserName") ?? "",
     userSlack: "",
   };
   const {
@@ -42,8 +42,8 @@ const SignupForm = () => {
           lastName: input.lastName,
           userRole: input.userRole,
           userEmail: input.userEmail,
+          github_id: input.github_id,
           userSlack: input.userSlack,
-          userPassword: input.userPassword,
           userGithub: input.userGithub,
           userClassId: input.userClassId,
           cyfCity: input.cyfCity,
@@ -114,28 +114,6 @@ const SignupForm = () => {
               />
               {errors.userEmail && (
                 <p className="error">*{errors.userEmail} </p>
-              )}
-              <label for="userPassword">Password</label>
-              <input
-                type="password"
-                placeholder="Password"
-                value={input.userPassword}
-                onChange={handleChange}
-                name="userPassword"
-              />
-              {errors.userPassword && (
-                <p className="error">*{errors.userPassword} </p>
-              )}
-              <label for="">Confirm Password</label>
-              <input
-                type="password"
-                placeholder="Confirm Password"
-                value={input.confirmPassword}
-                onChange={handleChange}
-                name="confirmPassword"
-              />
-              {errors.confirmPassword && (
-                <p className="error">*{errors.confirmPassword} </p>
               )}
               <label for="cyfCity">City</label>
               <input
