@@ -1,5 +1,5 @@
 import React from "react";
-import { Container} from "react-bootstrap";
+import { Container, btn} from "react-bootstrap";
 import Footer from "./Footer";
 import Header from "./Header";
 import LoginImage from "../login-image.jpg";
@@ -18,14 +18,12 @@ export default function LoginForm() {
       ></img>
 
       <Container className="main-container">
-        <div className="signup-prompt">
-          <em>Login with Github</em>
-
+        <div className="signup-prompt ">
           <a
             href={`https://github.com/login/oauth/authorize?client_id=${process.env.github_client_id}`}
-            className="register"
+            className="register text-white btn btn-dark   text-center "
           >
-            login/Signup
+            <i class="fab fa-github"></i> Sign in with Github
           </a>
         </div>
       </Container>
