@@ -116,14 +116,14 @@ input {
 .error {
   color: #ff0033;
 }
-.register {
-  text-align: center;
-  color: #219653;
-  font-size: large;
+.register{
+   padding: 1vw 3.5vw !important;
 }
 .register:hover {
-  color: #219653;
+ color:#c7c7c7 !important;
+ 
 }
+
 .signup-link {
   text-align: center;
   color: #219653;
@@ -140,8 +140,13 @@ a:link {
 }
 .signup-prompt {
   display: flex;
-  flex-direction: row;
-  margin: 0 auto;
+ justify-content: center;
+ margin-top: 3vw;
+
+
+}
+.signup-prompt:hover{
+  color: #b6b9be;
 }
 .edit-lo-container {
   float: right;
