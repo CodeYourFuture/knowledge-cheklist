@@ -30,8 +30,7 @@ body {
 }
 
 .header-img {
-  margin-left: 1vw;
-  height: 80%;
+  width: 20vw;
 }
 
 .logout-img {
