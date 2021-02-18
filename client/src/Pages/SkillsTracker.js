@@ -22,7 +22,6 @@ export default function Html({ skill, userName }) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        token: window.localStorage.getItem("token"),
       },
       body: JSON.stringify({
         ability: newAbility,
