@@ -3,9 +3,7 @@ import { useLocation } from "react-router-dom";
 export default function Header({ editLearningObjectives, back }) {
   const location = useLocation();
 
-  const logout = ()=>{
-  window.localStorage.clear()
-  }
+ 
   return (
     <div className="header">
       <img
@@ -20,7 +18,7 @@ export default function Header({ editLearningObjectives, back }) {
         <h3 className="signup-link">{back}</h3>
       </a>
       {location.pathname !== "/" && (
-        <a href="/api/logout" onClick={logout}>
+        <a href="/api/logout">
           <img
             src="https://www.flaticon.com/svg/static/icons/svg/159/159707.svg"
             alt="logout"
