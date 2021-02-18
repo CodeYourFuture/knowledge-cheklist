@@ -52,7 +52,7 @@ function MentorsView() {
   }
   const editLearningObjectives = (
     <a href="/MentorsEditLearningObj" className="signup-link">
-      Edit Learning Objectives
+      <button className="student-progress"> Edit Learning Objectives</button>
     </a>
   );
   let logout = (
