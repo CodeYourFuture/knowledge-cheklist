@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ProgressTrackingButtons from "../components/ProgressTrackingButtons";
 
-export default function Html({ skill, userName }) {
-  console.log(userName);
+export default function Html({ skill }) {
+ 
   const [learningObjectives, setLearningObjectives] = useState([]);
   const fetchLearningObj = () => {
     fetch(`/api/learningobjectives/${skill}`)

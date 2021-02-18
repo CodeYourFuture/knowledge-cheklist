@@ -51,7 +51,7 @@ export default function SkillsNav() {
                 key={index}
                 path={`/skills/${skill}`}
                 component={() => (
-                  <SkillTracker skill={skill} userName={userName} />
+                  <SkillTracker skill={skill} />
                 )}
               />
             ))}
