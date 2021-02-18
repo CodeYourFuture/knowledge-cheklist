@@ -50,17 +50,15 @@ router.get("/abilities/:id", authorization, mentorsOnly, (req, res) => {
     res.json(results.rows);
   });
 });
-//<--Get endpoint for learning objectives students view and mentor------------------>
+//<--Get endpoint for learning objectives students view------------------>
 
-router.get("/learningobjectives/:id/:skill", authorization, (req, res) => {
-  const userId = Number(req.params.id);
+router.get("/learningobjectives/:skill", authorization, (req, res) => {
+
   const skill = req.params.skill;
-  const role = req.session.user.role;
-  const id = req.session.user.id;
+ 
+  const userId = req.session.user.id;
 
-  if (role === "Student" && id !== userId) {
-    return res.status(401).json("not authorized");
-  }
+ 
   const queryLo = `select lo.id, lo.skill, description, ability, date_added, a.student_id  from learning_objective lo 
   left join achievements a on lo.id = a.learning_obj_id and a.student_id = $2
   where lo.skill = $1 and (a.student_id = $2 or a.student_id is null) order by lo.id;`;

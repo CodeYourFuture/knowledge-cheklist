@@ -7,7 +7,8 @@ import { skills, skillLabel } from "../components/consts/skillsConst";
 
 export default function SkillsNav() {
   let history = useHistory();
-  const [userName, setUserName] = useState({});
+  const [userName, setUserName] = useState(null);
+  console.log(userName);
   useEffect(() => {
     fetch(`/api/verify`)
       .then((res) => {
@@ -23,8 +24,7 @@ export default function SkillsNav() {
         }
       });
   }, []);
-
-  return (
+  return userName && (
     <div className="skillsnav-page">
       <div>
         <Header />
@@ -34,7 +34,7 @@ export default function SkillsNav() {
         <div className="skills-container">
           {skills.map((skill, index) => (
             <NavLink
-            key={index}
+              key={index}
               to={`/skills/${skill}`}
               activeClassName="active-skill-display"
               className="default-skill-display"
@@ -46,11 +46,12 @@ export default function SkillsNav() {
 
         <div>
           {skills.map((skill, index) => (
-        
-            <Route 
-            key={index}
+            <Route
+              key={index}
               path={`/skills/${skill}`}
-              component={() => <SkillTracker skill={skill} />}
+              component={() => (
+                <SkillTracker skill={skill} userName={userName} />
+              )}
             />
           ))}
         </div>
