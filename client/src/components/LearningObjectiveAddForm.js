@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { skills, skillLabel } from "./consts/skillsConst";
 export default function LearningObjectiveAddForm({ getLearningObj }) {
-  const token = window.localStorage.getItem("token");
+
   const initialDescription = {
     skill: "",
     description: "",
@@ -22,7 +22,7 @@ export default function LearningObjectiveAddForm({ getLearningObj }) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        token,
+       
       },
       body: JSON.stringify({
         skill: addDescription.skill,
