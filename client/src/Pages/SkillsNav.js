@@ -24,39 +24,41 @@ export default function SkillsNav() {
         }
       });
   }, []);
-  return userName && (
-    <div className="skillsnav-page">
-      <div>
-        <Header />
-      </div>
-      <h1 className="welcome-msg">Welcome {userName.name}</h1>
-      <div className="skills-main-container">
-        <div className="skills-container">
-          {skills.map((skill, index) => (
-            <NavLink
-              key={index}
-              to={`/skills/${skill}`}
-              activeClassName="active-skill-display"
-              className="default-skill-display"
-            >
-              {skillLabel(skill)}
-            </NavLink>
-          ))}
-        </div>
-
+  return (
+   (
+      <div className="skillsnav-page">
         <div>
-          {skills.map((skill, index) => (
-            <Route
-              key={index}
-              path={`/skills/${skill}`}
-              component={() => (
-                <SkillTracker skill={skill} userName={userName} />
-              )}
-            />
-          ))}
+          <Header />
         </div>
+        <h1 className="welcome-msg">Welcome {userName.name}😊</h1>
+        <div className="skills-main-container">
+          <div className="skills-container">
+            {skills.map((skill, index) => (
+              <NavLink
+                key={index}
+                to={`/skills/${skill}`}
+                activeClassName="active-skill-display"
+                className="default-skill-display"
+              >
+                {skillLabel(skill)}
+              </NavLink>
+            ))}
+          </div>
+
+          <div>
+            {skills.map((skill, index) => (
+              <Route
+                key={index}
+                path={`/skills/${skill}`}
+                component={() => (
+                  <SkillTracker skill={skill} userName={userName} />
+                )}
+              />
+            ))}
+          </div>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    )
   );
 }
