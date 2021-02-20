@@ -30,8 +30,7 @@ body {
 }
 
 .header-img {
-  margin-left: 1vw;
-  height: 80%;
+  width: 20vw;
 }
 
 .logout-img {
@@ -124,19 +123,22 @@ input {
 .register:hover {
   color: #219653;
 }
-.signup-link {
-  text-align: center;
-  color: #219653;
-  font-size: large;
-}
-a:link {
-  text-decoration: none;
-}
-.signup-link:hover {
+.student-progress {
   background-color: #495464;
   color: white;
   padding: 10px;
-  border-bottom: none;
+  border-radius: 10px;
+  font-size: large;
+  margin-left: 20px;
+}
+
+a:link {
+  text-decoration: none;
+}
+.student-progress:hover {
+  background-color: #333c49;
+  color: white;
+  padding: 10px;
 }
 .signup-prompt {
   display: flex;
@@ -322,6 +324,11 @@ li {
   border-radius: 5px;
   background-color: #db4437;
   color: #efefef;
+}
+
+.nav-features {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* .skill-name {
