@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
 export default function Header({ editLearningObjectives, logout, back }) {
   let location = useLocation();
 
   let logoLink = "";
+
   if (location.pathname.includes("skills")) {
     logoLink = "/skills";
   } else if (location.pathname.includes("Mentors")) {
