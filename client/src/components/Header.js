@@ -14,12 +14,11 @@ export default function Header({ editLearningObjectives, logout, back }) {
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="nav-link" href={logoLink}>
-          {" "}
           <img
             src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
             alt="code your future"
             className="header-img"
-          ></img>{" "}
+          ></img>
         </a>
         <button
           class="navbar-toggler"
@@ -36,8 +35,8 @@ export default function Header({ editLearningObjectives, logout, back }) {
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               {back ? (
-                <a href="/MentorsView">
-                  <button className="student-progress">{back}</button>
+                <a className="student-progress" href="/MentorsView">
+                  {back}
                 </a>
               ) : (
                 editLearningObjectives
