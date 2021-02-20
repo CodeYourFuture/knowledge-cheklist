@@ -47,8 +47,6 @@ body {
   justify-content: space-between;
   padding: 2%;
   font-size: larger;
-  margin-bottom: 65px;
-  border-bottom: 5px solid #000;
 }
 
 .signup-form-container {
@@ -57,6 +55,7 @@ body {
 
 .signup-container {
   display: flex;
+  border-bottom: 5px solid #000;
 }
 
 .sign-form label {

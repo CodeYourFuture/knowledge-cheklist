@@ -5,6 +5,8 @@ import "../App.css";
 import validate from "./SignupValidation";
 import Footer from "./Footer";
 import Header from "./Header";
+import CityDropDownOptions from "./CityDropDownOptions";
+
 const SignupForm = () => {
   const [hasRegistered, setHasRegistered] = useState(false);
   const [serverError, setServerError] = useState("");
@@ -21,6 +23,7 @@ const SignupForm = () => {
     userGithub: "",
     userSlack: "",
   };
+
   const {
     handleChange,
     input,
@@ -28,7 +31,6 @@ const SignupForm = () => {
     errors,
     isValid,
   } = useFormValidation(validate, intialState);
-  console.log(errors);
 
   useEffect(() => {
     if (isValid) {
@@ -66,7 +68,9 @@ const SignupForm = () => {
         });
     }
   }, [isValid]);
-
+  console.log(intialState);
+  console.log(input.cyfCity);
+  console.log(input.userClassId);
   return (
     <div>
       <Header />
@@ -137,26 +141,7 @@ const SignupForm = () => {
               {errors.confirmPassword && (
                 <p className="error">*{errors.confirmPassword} </p>
               )}
-              <label for="cyfCity">City</label>
-              <input
-                type="text"
-                placeholder="City"
-                value={input.cyfCity}
-                onChange={handleChange}
-                name="cyfCity"
-              />
-              {errors.cyfCity && <p className="error">*{errors.cyfCity} </p>}
-              <label for="userClassId">Class</label>
-              <input
-                type="number"
-                placeholder="Class"
-                value={input.userClassId}
-                onChange={handleChange}
-                name="userClassId"
-              />
-              {errors.userClassId && (
-                <p className="error">*{errors.userClassId} </p>
-              )}
+
               <label for="userGithub">Github Name</label>
               <input
                 type="text"
@@ -173,7 +158,19 @@ const SignupForm = () => {
                 onChange={handleChange}
                 name="userSlack"
               />
+              <CityDropDownOptions
+                city={input.cyfCity}
+                handleChange={handleChange}
+              />
+              {/* <label for="cyfCity">City</label>
+              
 
+             
+              {/* {errors.cyfCity && <p className="error">*{errors.cyfCity} </p>} */}
+
+              {/* {errors.userClassId && (
+                <p className="error">*{errors.userClassId} </p>
+              )} */}
               <label for="userRole">Please select a role</label>
               <select name="userRole" onChange={handleChange}>
                 <option value="select">Select</option>
