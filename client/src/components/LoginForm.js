@@ -1,12 +1,12 @@
 import React from "react";
-import { Container, btn} from "react-bootstrap";
+import { Container, btn } from "react-bootstrap";
 import Footer from "./Footer";
 import Header from "./Header";
 import LoginImage from "../login-image.jpg";
 import "../App.css";
 
 export default function LoginForm() {
- 
+  console.log(process.env.github_client_id);
   return (
     <div className="login-container">
       <Header />
