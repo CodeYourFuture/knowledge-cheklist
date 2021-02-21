@@ -7,7 +7,7 @@ import { skills, skillLabel } from "../components/consts/skillsConst";
 
 export default function SkillsNav() {
   let history = useHistory();
-  const [userName, setUserName] = useState(null);
+  const [userName, setUserName] = useState({});
   console.log(userName);
   useEffect(() => {
     fetch(`/api/verify`)

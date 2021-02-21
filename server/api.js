@@ -2,8 +2,6 @@ import { Router } from "express";
 import { Connection } from "./db";
 import { mentorsOnly } from "./middleware/mentorsOnly";
 const router = new Router();
-import bcrypt from "bcrypt";
-import jwtGenerator from "./utils/jwtGenerator";
 import validInfo from "./middleware/validInfo";
 import authorization from "./middleware/authorization";
 import exchangeCodeForGithubUser from "./utils/exchangeCodeForGithubUser";
@@ -17,12 +15,6 @@ router.get("/", (_, res, next) => {
   });
 });
 
-// router.get("/learningobjectives", (req, res) => {
-//   Connection.query("select * from learning_objective ", (error, results) => {
-//     res.json(results.rows);
-//   });
-// });
-
 router.get("/", (_, res, next) => {
   Connection.connect((err) => {
     if (err) {
@@ -35,9 +27,6 @@ router.get("/", (_, res, next) => {
 
 router.get("/abilities/:id", authorization, mentorsOnly, (req, res) => {
   const userId = Number(req.params.id);
-  const role = req.session.user.role;
-  const id = req.session.user.id;
-
   const queryLo = `select lo.id, lo.skill, description, ability, date_added, a.student_id  from learning_objective lo 
   left join achievements a on lo.id = a.learning_obj_id and a.student_id =$1
   where (a.student_id = $1 or a.student_id is null) order by lo.id;`;
@@ -46,19 +35,14 @@ router.get("/abilities/:id", authorization, mentorsOnly, (req, res) => {
     if (err) {
       console.log(err);
     }
-    //console.log(results.rows);
     res.json(results.rows);
   });
 });
 //<--Get endpoint for learning objectives students view------------------>
 
 router.get("/learningobjectives/:skill", authorization, (req, res) => {
-
   const skill = req.params.skill;
- 
   const userId = req.session.user.id;
-
- 
   const queryLo = `select lo.id, lo.skill, description, ability, date_added, a.student_id  from learning_objective lo 
   left join achievements a on lo.id = a.learning_obj_id and a.student_id = $2
   where lo.skill = $1 and (a.student_id = $2 or a.student_id is null) order by lo.id;`;
@@ -67,7 +51,6 @@ router.get("/learningobjectives/:skill", authorization, (req, res) => {
     if (err) {
       console.log(err);
     }
-    //console.log(results.rows);
     res.json(results.rows);
   });
 });
@@ -241,29 +224,16 @@ router.post("/register", validInfo, async (req, res) => {
         cyfCity,
       ]
     );
-    const token = jwtGenerator(
-      newUser.rows[0].user_id,
-      newUser.rows[0].user_role,
-      newUser.rows[0].first_name
-    );
-
+    
     req.session.user = {
       id: newUser.rows[0].user_id,
       role: newUser.rows[0].user_role,
       name: newUser.rows[0].first_name,
     };
-  req.session.user = {
-    id: newUser.rows[0].user_id,
-    role: newUser.rows[0].user_role,
-    name: newUser.rows[0].first_name,
-  };
-    console.log("here is the token");
+ 
+    
     res.json({
-      token: token,
       message: "Registered",
-      id: newUser.rows[0].user_id,
-      role: newUser.rows[0].user_role,
-      name: newUser.rows[0].first_name,
     });
   } catch (err) {
     console.error(err.message);
@@ -279,7 +249,6 @@ router.get("/githubAuth", async (req, res) => {
     id: githubId,
     login: githubUserName,
   } = await exchangeCodeForGithubUser(req.query.code);
-  console.log(req.query, "and", githubUserName);
   try {
     const user = await Connection.query(
       "select * from users where github_id=$1",
@@ -311,7 +280,6 @@ router.get("/githubAuth", async (req, res) => {
 
 router.get("/verify", authorization, async (req, res) => {
   try {
-    console.log("passed the authorization");
     res.set("cache-control", "no-store");
     res.json(req.session.user);
   } catch (err) {

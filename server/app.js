@@ -2,7 +2,7 @@ import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
-import jwsAuth from "./routes/jwtAuth";
+
 import router from "./api";
 import { httpsOnly, logErrors, pushStateRouting } from "./middleware/middleware";
 import cookieSession from "cookie-session";
@@ -29,7 +29,7 @@ const staticDir = path.join(__dirname, "static");
 //routes.initialize(app);
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(require('./routes/jwtAuth'))
+
 //app.use(require('./routes/dashboard'))
 app.use(express.json());
 app.use(helmet());
