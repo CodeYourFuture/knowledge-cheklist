@@ -8,7 +8,11 @@ import { skills, skillLabel } from "../components/consts/skillsConst";
 export default function SkillsNav() {
   let history = useHistory();
   const [userName, setUserName] = useState({});
-  console.log(userName);
+
+
+
+
+
   useEffect(() => {
     fetch(`/api/verify`)
       .then((res) => {
@@ -24,41 +28,38 @@ export default function SkillsNav() {
         }
       });
   }, []);
-  return (
-   (
-      <div className="skillsnav-page">
-        <div>
-          <Header />
-        </div>
-        <h1 className="welcome-msg">Welcome {userName.name}😊</h1>
-        <div className="skills-main-container">
-          <div className="skills-container">
-            {skills.map((skill, index) => (
-              <NavLink
-                key={index}
-                to={`/skills/${skill}`}
-                activeClassName="active-skill-display"
-                className="default-skill-display"
-              >
-                {skillLabel(skill)}
-              </NavLink>
-            ))}
-          </div>
 
-          <div>
-            {skills.map((skill, index) => (
-              <Route
-                key={index}
-                path={`/skills/${skill}`}
-                component={() => (
-                  <SkillTracker skill={skill} />
-                )}
-              />
-            ))}
-          </div>
-        </div>
-        <Footer />
+  return (
+    <div className="skillsnav-page">
+      <div>
+        <Header />
       </div>
-    )
+      <h1 className="welcome-msg">Welcome {userName.name}😊</h1>
+      <div className="skills-main-container">
+        <div className="skills-container">
+          {skills.map((skill, index) => (
+            <NavLink
+              key={index}
+              to={`/skills/${skill}`}
+              activeClassName="active-skill-display"
+              className="default-skill-display"
+            >
+              {skillLabel(skill)}
+            </NavLink>
+          ))}
+        </div>
+
+        <div>
+          {skills.map((skill, index) => (
+            <Route
+              key={index}
+              path={`/skills/${skill}`}
+              component={() => <SkillTracker skill={skill} />}
+            />
+          ))}
+        </div>
+      </div>
+      <Footer />
+    </div>
   );
 }

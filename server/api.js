@@ -42,7 +42,9 @@ router.get("/abilities/:id", authorization, mentorsOnly, (req, res) => {
 
 router.get("/learningobjectives/:skill", authorization, (req, res) => {
   const skill = req.params.skill;
+
   const userId = req.session.user.id;
+
   const queryLo = `select lo.id, lo.skill, description, ability, date_added, a.student_id  from learning_objective lo 
   left join achievements a on lo.id = a.learning_obj_id and a.student_id = $2
   where lo.skill = $1 and (a.student_id = $2 or a.student_id is null) order by lo.id;`;
@@ -224,14 +226,15 @@ router.post("/register", validInfo, async (req, res) => {
         cyfCity,
       ]
     );
-    
+
     req.session.user = {
       id: newUser.rows[0].user_id,
       role: newUser.rows[0].user_role,
       name: newUser.rows[0].first_name,
     };
- 
-    
+
+  
+
     res.json({
       message: "Registered",
     });
@@ -245,6 +248,7 @@ router.post("/register", validInfo, async (req, res) => {
 ///github authorization
 
 router.get("/githubAuth", async (req, res) => {
+  console.log("hello github");
   const {
     id: githubId,
     login: githubUserName,
