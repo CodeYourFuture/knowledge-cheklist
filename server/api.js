@@ -196,16 +196,16 @@ router.post("/register", validInfo, async (req, res) => {
     lastName,
     userRole,
     userEmail,
-    github_id,
     userSlack,
     userGithub,
     userClassId,
     cyfCity,
   } = req.body;
+ 
   try {
     const user = await Connection.query(
       "SELECT * FROM users WHERE github_id = $1",
-      [github_id]
+      [req.session.githubId]
     );
     if (user.rows.length !== 0) {
       return res.status(401).json({ error: "User already exist!" });
@@ -219,7 +219,7 @@ router.post("/register", validInfo, async (req, res) => {
         lastName,
         userRole,
         userEmail,
-        github_id,
+   req.session.githubId,
         userSlack,
         userGithub,
         userClassId,
@@ -248,7 +248,6 @@ router.post("/register", validInfo, async (req, res) => {
 ///github authorization
 
 router.get("/githubAuth", async (req, res) => {
-  console.log("hello github");
   const {
     id: githubId,
     login: githubUserName,

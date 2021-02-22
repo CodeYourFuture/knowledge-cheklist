@@ -13,8 +13,7 @@ import cookieSession from "cookie-session";
 var app = express();
 
 app.set("trust proxy", 1); // trust first proxy
-console.log("hey", process.env.cookieSessionKey);
-console.log("line17", process.env.github_client_id);
+
 app.use(
   cookieSession({
     name: "session",
