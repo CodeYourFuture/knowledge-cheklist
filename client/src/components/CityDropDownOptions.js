@@ -12,7 +12,11 @@ export default function CityDropDownOptions({ city, handleChange }) {
       return (
         <>
           <label for="userClassId">Choose a Class</label>
-          <select name="userClassId" onChange={handleChange}>
+          <select
+            className="style-select"
+            name="userClassId"
+            onChange={handleChange}
+          >
             <option value="select">Select</option>
             {cities.London.map((cohort, index) => (
               <option key={index} value={cohort}>
@@ -27,7 +31,11 @@ export default function CityDropDownOptions({ city, handleChange }) {
       return (
         <>
           <label for="userClassId">Choose a Class</label>
-          <select name="userClassId" onChange={handleChange}>
+          <select
+            className="style-select"
+            name="userClassId"
+            onChange={handleChange}
+          >
             <option value="select">Select</option>
             {cities["North-West"].map((cohort, index) => (
               <option key={index} value={cohort}>
@@ -42,7 +50,11 @@ export default function CityDropDownOptions({ city, handleChange }) {
       return (
         <>
           <label for="userClassId">Choose a Class</label>
-          <select name="userClassId" onChange={handleChange}>
+          <select
+            className="style-select"
+            name="userClassId"
+            onChange={handleChange}
+          >
             <option value="select">Select</option>
             {cities.Scotland.map((cohort, index) => (
               <option key={index} value={cohort}>
@@ -56,10 +68,10 @@ export default function CityDropDownOptions({ city, handleChange }) {
   };
 
   return (
-    <div>
-      <label for="cyfCity">City</label>
-      <select name="cyfCity" onChange={handleChange}>
-        <option value="select">Select</option>
+    <>
+      <label for="cyfCity">Location</label>
+      <select className="style-select" name="cyfCity" onChange={handleChange}>
+        <option value="select"> Select </option>
 
         {Object.keys(cities).map((city, index) => (
           <option key={index} value={city}>
@@ -69,6 +81,6 @@ export default function CityDropDownOptions({ city, handleChange }) {
       </select>
 
       {cityDropDown()}
-    </div>
+    </>
   );
 }

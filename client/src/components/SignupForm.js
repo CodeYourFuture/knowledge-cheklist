@@ -162,17 +162,13 @@ const SignupForm = () => {
                 city={input.cyfCity}
                 handleChange={handleChange}
               />
-              {/* <label for="cyfCity">City</label>
-              
 
-             
-              {/* {errors.cyfCity && <p className="error">*{errors.cyfCity} </p>} */}
-
-              {/* {errors.userClassId && (
-                <p className="error">*{errors.userClassId} </p>
-              )} */}
               <label for="userRole">Please select a role</label>
-              <select name="userRole" onChange={handleChange}>
+              <select
+                className="role-select"
+                name="userRole"
+                onChange={handleChange}
+              >
                 <option value="select">Select</option>
                 <option value="Student">Student</option>
                 <option value="Mentor">Mentor</option>
