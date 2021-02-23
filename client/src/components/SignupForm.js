@@ -5,12 +5,9 @@ import "../App.css";
 import validate from "./SignupValidation";
 import Footer from "./Footer";
 import Header from "./Header";
-<<<<<<< HEAD
 import useQuery from "../components/useQuery";
-=======
 import CityDropDownOptions from "./CityDropDownOptions";
 
->>>>>>> 7c3c1bcab0817973d3b9ac1bf454d2c710ab4cf8
 const SignupForm = () => {
   const [hasRegistered, setHasRegistered] = useState(false);
   const [serverError, setServerError] = useState("");
@@ -115,52 +112,7 @@ const SignupForm = () => {
               {errors.userEmail && (
                 <p className="error">*{errors.userEmail} </p>
               )}
-<<<<<<< HEAD
-              <label for="cyfCity">City</label>
-              <input
-                type="text"
-                placeholder="City"
-                value={input.cyfCity}
-                onChange={handleChange}
-                name="cyfCity"
-              />
-              {errors.cyfCity && <p className="error">*{errors.cyfCity} </p>}
-              <label for="userClassId">Class</label>
-              <input
-                type="number"
-                placeholder="Class"
-                value={input.userClassId}
-                onChange={handleChange}
-                name="userClassId"
-              />
-              {errors.userClassId && (
-                <p className="error">*{errors.userClassId} </p>
-              )}
-=======
-              <label for="userPassword">Password</label>
-              <input
-                type="password"
-                placeholder="Password"
-                value={input.userPassword}
-                onChange={handleChange}
-                name="userPassword"
-              />
-              {errors.userPassword && (
-                <p className="error">*{errors.userPassword} </p>
-              )}
-              <label for="">Confirm Password</label>
-              <input
-                type="password"
-                placeholder="Confirm Password"
-                value={input.confirmPassword}
-                onChange={handleChange}
-                name="confirmPassword"
-              />
-              {errors.confirmPassword && (
-                <p className="error">*{errors.confirmPassword} </p>
-              )}
 
->>>>>>> 7c3c1bcab0817973d3b9ac1bf454d2c710ab4cf8
               <label for="userGithub">Github Name</label>
               <input
                 type="text"

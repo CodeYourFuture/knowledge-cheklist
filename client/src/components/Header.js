@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-export default function Header({ editLearningObjectives, back }) {
+export default function Header({ editLearningObjectives, back, logout }) {
   const location = useLocation();
 
   let logoLink = "";
