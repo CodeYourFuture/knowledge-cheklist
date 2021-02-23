@@ -44,7 +44,15 @@ export default function Header({ editLearningObjectives, back, logout }) {
               )}
             </li>
           </ul>
-          <div className="nav-item">{logout}</div>
+          {location.pathname !== "/" && (
+            <a href="/api/logout">
+              <img
+                src="https://www.flaticon.com/svg/static/icons/svg/159/159707.svg"
+                alt="logout"
+                className="logout-img"
+              ></img>
+            </a>
+          )}
         </div>
       </div>
     </nav>
