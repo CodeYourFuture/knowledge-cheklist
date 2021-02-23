@@ -12,9 +12,9 @@ export default function Header({ editLearningObjectives, back, logout }) {
   }
 
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="nav-link" href={logoLink}>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+        <a className="nav-link" href={logoLink}>
           <img
             src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
             alt="code your future"
@@ -22,7 +22,7 @@ export default function Header({ editLearningObjectives, back, logout }) {
           ></img>
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -30,11 +30,11 @@ export default function Header({ editLearningObjectives, back, logout }) {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
               {back ? (
                 <a className="student-progress" href="/MentorsView">
                   {back}
