@@ -48,7 +48,7 @@ const [mentorName, setMentorName] = useState(null);
     }
   }
   const editLearningObjectives = (
-    <a href="/MentorsEditLearningObj" className="signup-link">
+    <a className="student-progress" href="/MentorsEditLearningObj">
       Edit Learning Objectives
     </a>
   );

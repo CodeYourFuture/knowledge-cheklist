@@ -65,7 +65,7 @@
   "dependencies": {
     "@babel/runtime": "^7.10.5",
     "body-parser": "^1.19.0",
-    "bootstrap": "^4.5.3",
+    "bootstrap": "^4.6.0",
     "cookie-session": "^1.4.0",
     "dotenv": "^8.2.0",
     "dotenv-webpack": "^4.0.0",

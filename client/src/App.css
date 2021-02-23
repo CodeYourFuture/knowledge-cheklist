@@ -30,8 +30,7 @@ body {
 }
 
 .header-img {
-  margin-left: 5vw;
-  height: 50%;
+  width: 20vw;
 }
 
 .logout-img {
@@ -116,36 +115,41 @@ input {
 .error {
   color: #ff0033;
 }
-.register{
-   padding: 1vw 3.5vw !important;
+.register {
+  padding: 1vw 3.5vw !important;
 }
 .register:hover {
- color:#c7c7c7 !important;
- 
+  color: #c7c7c7 !important;
 }
 
 .signup-link {
   text-align: center;
   color: #219653;
-  font-size: large;
 }
-a:link {
-  text-decoration: none;
-}
-.signup-link:hover {
+
+.student-progress {
   background-color: #495464;
   color: white;
   padding: 10px;
-  border-bottom: none;
+  border-radius: 10px;
+  font-size: large;
+  margin-left: 20px;
+}
+
+a:link {
+  text-decoration: none;
+}
+.student-progress:hover {
+  background-color: #333c49;
+  color: white;
+  padding: 10px;
 }
 .signup-prompt {
   display: flex;
- justify-content: center;
- margin-top: 3vw;
-
-
+  justify-content: center;
+  margin-top: 3vw;
 }
-.signup-prompt:hover{
+.signup-prompt:hover {
   color: #b6b9be;
 }
 .edit-lo-container {
@@ -327,6 +331,11 @@ li {
   border-radius: 5px;
   background-color: #db4437;
   color: #efefef;
+}
+
+.nav-features {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* .skill-name {
