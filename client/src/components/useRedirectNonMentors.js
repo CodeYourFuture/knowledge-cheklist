@@ -13,8 +13,6 @@ export function useRedirectNonMentors(callBack = () => {}) {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
-        window.localStorage.setItem("role", data.role);
         if (data == "not authorized" || data.role == "Student") {
           history.push("/");
         } else {

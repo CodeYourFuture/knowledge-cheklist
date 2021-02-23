@@ -116,13 +116,17 @@ input {
   color: #ff0033;
 }
 .register {
-  text-align: center;
-  color: #219653;
-  font-size: large;
+  padding: 1vw 3.5vw !important;
 }
 .register:hover {
+  color: #c7c7c7 !important;
+}
+
+.signup-link {
+  text-align: center;
   color: #219653;
 }
+
 .student-progress {
   background-color: #495464;
   color: white;
@@ -142,8 +146,11 @@ a:link {
 }
 .signup-prompt {
   display: flex;
-  flex-direction: row;
-  margin: 0 auto;
+  justify-content: center;
+  margin-top: 3vw;
+}
+.signup-prompt:hover {
+  color: #b6b9be;
 }
 .edit-lo-container {
   float: right;

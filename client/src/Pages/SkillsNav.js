@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SkillTracker from "./SkillsTracker";
 import { useHistory, Route, NavLink } from "react-router-dom";
 import Header from "../components/Header";
@@ -7,9 +7,13 @@ import { skills, skillLabel } from "../components/consts/skillsConst";
 
 export default function SkillsNav() {
   let history = useHistory();
-  useEffect(() => {
+  const [userName, setUserName] = useState({});
 
-  
+
+
+
+
+  useEffect(() => {
     fetch(`/api/verify`)
       .then((res) => {
         if (res.status !== 200) {
@@ -18,34 +22,24 @@ export default function SkillsNav() {
         return res.json();
       })
       .then((data) => {
-        window.localStorage.setItem("role", data.role);
+        setUserName(data);
         if (data == "not authorized" || data.role == "Mentor") {
           history.push("/");
         }
       });
   }, []);
-  let logout = (
-    <a href="/">
-      <img
-        src="https://www.flaticon.com/svg/static/icons/svg/159/159707.svg"
-        alt="logout"
-        className="logout-img"
-      ></img>
-    </a>
-  );
 
   return (
     <div className="skillsnav-page">
       <div>
-        <Header logout={logout} />
+        <Header />
       </div>
-      <h1 className="welcome-msg">
-        Welcome {window.localStorage.getItem("name")}
-      </h1>
+      <h1 className="welcome-msg">Welcome {userName.name}😊</h1>
       <div className="skills-main-container">
         <div className="skills-container">
-          {skills.map((skill) => (
+          {skills.map((skill, index) => (
             <NavLink
+              key={index}
               to={`/skills/${skill}`}
               activeClassName="active-skill-display"
               className="default-skill-display"
@@ -56,9 +50,9 @@ export default function SkillsNav() {
         </div>
 
         <div>
-          {skills.map((skill) => (
-          
+          {skills.map((skill, index) => (
             <Route
+              key={index}
               path={`/skills/${skill}`}
               component={() => <SkillTracker skill={skill} />}
             />

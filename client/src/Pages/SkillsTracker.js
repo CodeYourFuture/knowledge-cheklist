@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import ProgressTrackingButtons from "../components/ProgressTrackingButtons";
 
 export default function Html({ skill }) {
+ 
   const [learningObjectives, setLearningObjectives] = useState([]);
-
   const fetchLearningObj = () => {
-    fetch(`/api/learningobjectives/${localStorage.getItem("user")}/${skill}`)
+    fetch(`/api/learningobjectives/${skill}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.error) {
@@ -22,7 +22,6 @@ export default function Html({ skill }) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        token: window.localStorage.getItem("token"),
       },
       body: JSON.stringify({
         ability: newAbility,

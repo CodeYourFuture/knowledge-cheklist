@@ -1,7 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, useLocation } from "react-router-dom";
-export default function Header({ editLearningObjectives, logout, back }) {
-  let location = useLocation();
+import { useLocation } from "react-router-dom";
+export default function Header({ editLearningObjectives, back }) {
+  const location = useLocation();
 
   let logoLink = "";
 
