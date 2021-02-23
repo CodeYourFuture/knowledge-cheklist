@@ -2,13 +2,16 @@ import React from "react";
 
 export default function CityDropDownOptions({ city, handleChange }) {
   const cities = {
-    "North-West": [1, 2, 3, 4],
+    "Cape Town": [1, 2, 3],
     London: [1, 2, 3, 4, 5, 6, 7],
+    "North West": [1, 2, 3, 4],
+    Rome: [1, 2, 3],
     Scotland: [1, 2, 3, 4, 5],
+    "West Midlands": [1, 2, 3, 4],
   };
-
+  console.log(city);
   const cityDropDown = () => {
-    if (city === "London") {
+    if (city) {
       return (
         <>
           <label for="userClassId">Choose a Class</label>
@@ -18,45 +21,7 @@ export default function CityDropDownOptions({ city, handleChange }) {
             onChange={handleChange}
           >
             <option value="select">Select</option>
-            {cities.London.map((cohort, index) => (
-              <option key={index} value={cohort}>
-                {cohort}
-              </option>
-            ))}
-          </select>
-        </>
-      );
-    }
-    if (city === "North-West") {
-      return (
-        <>
-          <label for="userClassId">Choose a Class</label>
-          <select
-            className="style-select"
-            name="userClassId"
-            onChange={handleChange}
-          >
-            <option value="select">Select</option>
-            {cities["North-West"].map((cohort, index) => (
-              <option key={index} value={cohort}>
-                {cohort}
-              </option>
-            ))}
-          </select>
-        </>
-      );
-    }
-    if (city === "Scotland") {
-      return (
-        <>
-          <label for="userClassId">Choose a Class</label>
-          <select
-            className="style-select"
-            name="userClassId"
-            onChange={handleChange}
-          >
-            <option value="select">Select</option>
-            {cities.Scotland.map((cohort, index) => (
+            {cities[city].map((cohort, index) => (
               <option key={index} value={cohort}>
                 {cohort}
               </option>
