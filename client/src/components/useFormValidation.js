@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
-
-function useFormValidation(validate, intialState)  {
+function useFormValidation(validate, intialState) {
   const [errors, setErrors] = useState({});
   const [input, setInput] = useState(intialState);
   const [isValid, setIsValid] = useState(false);
@@ -11,8 +10,9 @@ function useFormValidation(validate, intialState)  {
       ...input,
       [event.target.name]: event.target.value,
     };
-    setInput(updateInput)
-    setIsValid(false)
+    setInput(updateInput);
+    setIsValid(false);
+    console.log(updateInput);
   }
 
   function handleSubmit(event) {
@@ -28,5 +28,5 @@ function useFormValidation(validate, intialState)  {
   }
 
   return { handleChange, input, handleSubmit, errors, isValid };
-};
+}
 export default useFormValidation;
