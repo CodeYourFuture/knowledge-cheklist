@@ -201,7 +201,7 @@ router.post("/register", validInfo, async (req, res) => {
     userClassId,
     cyfCity,
   } = req.body;
- 
+
   try {
     const user = await Connection.query(
       "SELECT * FROM users WHERE github_id = $1",
@@ -219,7 +219,7 @@ router.post("/register", validInfo, async (req, res) => {
         lastName,
         userRole,
         userEmail,
-   req.session.githubId,
+        req.session.githubId,
         userSlack,
         userGithub,
         userClassId,
@@ -232,8 +232,6 @@ router.post("/register", validInfo, async (req, res) => {
       role: newUser.rows[0].user_role,
       name: newUser.rows[0].first_name,
     };
-
-  
 
     res.json({
       message: "Registered",
@@ -294,5 +292,13 @@ router.get("/verify", authorization, async (req, res) => {
 router.all("/logout", (req, res) => {
   req.session = null;
   res.redirect("/");
+});
+
+//callback github link
+
+router.get("/github-client-id", (req, res) => {
+  res.json({
+    github_client_id: process.env.REACT_APP_GITHUB_CLIENT_ID,
+  });
 });
 export default router;
