@@ -37,7 +37,6 @@
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "@codeyourfuture/eslint-config-standard": "^2.0.1",
-    "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "concurrently": "^5.2.0",
@@ -64,6 +63,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.10.5",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.6.0",
     "cookie-session": "^1.4.0",
