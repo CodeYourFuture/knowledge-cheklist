@@ -5,6 +5,7 @@ import Header from "./Header";
 import LoginImage from "../login-image.jpg";
 import "../App.css";
 const { REACT_APP_GITHUB_CLIENT_ID } = process.env;
+const githubCallBackLink = `https://github.com/login/oauth/authorize?client_id=${REACT_APP_GITHUB_CLIENT_ID}`;
 
 export default function LoginForm() {
   return (
@@ -20,7 +21,7 @@ export default function LoginForm() {
       <Container className="main-container">
         <div className="signup-prompt ">
           <a
-            href={`https://github.com/login/oauth/authorize?client_id=${REACT_APP_GITHUB_CLIENT_ID}`}
+            href={githubCallBackLink}
             className="register text-white btn btn-dark   text-center "
           >
             <i class="fab fa-github"></i> Sign in with Github
