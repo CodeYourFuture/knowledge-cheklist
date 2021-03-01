@@ -11,6 +11,10 @@
   background-color: blue;
 }
 
+.btn-white{
+  background-color: white;
+}
+
 .btn-container {
   display: flex;
   justify-content: space-around;
