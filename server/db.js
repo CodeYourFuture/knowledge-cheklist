@@ -25,4 +25,4 @@ if (process.env.DATABASE_URL) {
 pool = new Pool(config);
 
 exports.Connection = pool;
-//module.exports = pool;
+exports.config = config;

@@ -1,0 +1,32 @@
+
+{
+"defaultEnv": "local",
+  
+  "local": {
+    "driver": "pg",
+    "user": {"ENV": "db_user"},
+    "password": {"ENV": "db_password"},
+    "host": "localhost",
+    "database": "cyf_knowledge_checklist",
+    "port": {"ENV": "db_port"}  
+
+  },
+
+  "dev": {
+    "driver": "pg",
+    "user": {"ENV": "HEROKU_DB_USER"},
+    "password": {"ENV": "HEROKU_DB_PASSWORD"},
+    "host": {"ENV": "HEROKU_DB_HOST"},
+    "database": {"ENV": "HEROKU_DB_DATABASE"},
+    "port": {"ENV": "HEROKU_DB_PORT"} 
+  },
+
+  "production": {
+    "driver": "pg",
+    "user": {"ENV": "db_name"},
+    "password": {"ENV": "db_password"},
+    "host": {"ENV": "db_host"},
+    "database": {"ENV": "db_database"},
+    "port": {"ENV": "db_port"} 
+  }
+}
