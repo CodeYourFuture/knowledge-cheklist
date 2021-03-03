@@ -34,7 +34,7 @@ export default function LoginForm() {
       <Container className="main-container">
         <div className="signup-prompt ">
           <a
-            href={`https://github.com/login/oauth/authorize?client_id=${clientId}`}
+            href={`https://github.com/login/oauth/authorize?client_id=${REACT_APP_GITHUB_CLIENT_ID}`}
             className="register text-white btn btn-dark   text-center "
           >
             <i class="fab fa-github"></i> Sign in with Github
