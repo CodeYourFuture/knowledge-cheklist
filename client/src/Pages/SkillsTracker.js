@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ProgressTrackingButtons from "../components/ProgressTrackingButtons";
 
 export default function Html({ skill }) {
- 
   const [learningObjectives, setLearningObjectives] = useState([]);
   const fetchLearningObj = () => {
     fetch(`/api/learningobjectives/${skill}`)
@@ -12,7 +11,6 @@ export default function Html({ skill }) {
           throw data;
         }
         setLearningObjectives(data);
-        console.log(data);
       });
   };
   useEffect(fetchLearningObj, [skill]);
@@ -38,7 +36,6 @@ export default function Html({ skill }) {
     setLearningObjectives(
       learningObjectives.map((obj) => {
         if (obj.id === id) {
-          console.log( {obj} );
           return { ...obj, ability: newAbility };
         }
         return obj;
@@ -48,8 +45,7 @@ export default function Html({ skill }) {
 
   /// update deslect
 
-  function deselect (studentId, ability, learningObjId) {
-    console.log(studentId, ability, learningObjId);
+  function deselect(studentId, ability, learningObjId) {
     fetch(`/api/deselect`, {
       method: "PUT",
       headers: {
@@ -58,41 +54,37 @@ export default function Html({ skill }) {
       body: JSON.stringify({
         ability: ability,
         learning_obj_id: learningObjId,
-        student_id: studentId
+        student_id: studentId,
       }),
     })
       .then((response) => response.json())
-      .then((data) => {
-       console.log(data);
-      })
       .then(fetchLearningObj);
   }
-
 
   return (
     <div className="learning-objective-container">
       <ul>
-        {learningObjectives.map(({ description, id, ability, student_id }, index) => {
-          function updateAbility(newAbility) {
-            updateAchievement(newAbility, id)
-  
-          }
-      
-       
-          return (
-            <li key={index}>
-              {description}
+        {learningObjectives.map(
+          ({ description, id, ability, student_id }, index) => {
+            function updateAbility(newAbility) {
+              updateAchievement(newAbility, id);
+            }
 
-              <ProgressTrackingButtons
-                deselect={deselect}
-                ability={ability}
-                updateAbility={updateAbility}
-                learningObjId={id}
-                student_id={student_id}
-              />
-            </li>
-          );
-        })}
+            return (
+              <li key={index}>
+                {description}
+
+                <ProgressTrackingButtons
+                  deselect={deselect}
+                  ability={ability}
+                  updateAbility={updateAbility}
+                  learningObjId={id}
+                  student_id={student_id}
+                />
+              </li>
+            );
+          }
+        )}
       </ul>
     </div>
   );

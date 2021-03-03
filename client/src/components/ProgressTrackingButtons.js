@@ -8,10 +8,6 @@ export default function ProgressTrackingButtons({
   student_id,
   learningObjId,
 }) {
-  console.log(ability);
-  //   function handler() {
-  // if ()
-  //   }
   return (
     <div className="btn-container">
       <TrackBtn
