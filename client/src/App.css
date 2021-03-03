@@ -294,10 +294,28 @@ li {
 .modal-body .modal-footer {
   font-size: larger;
 }
+.active {
+  padding: 3px 0px 3px 5px;
+  color: rgb(228, 9, 9);
+  background-color: rgba(255, 255, 255, 0.842);
+  transition: 0.3s;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
 
+.name-list {
+  width: 100%;
+}
 .inactive {
   color: #d1d1d1;
-  margin-right: 3px;
+  margin-right: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .students-name {
@@ -316,13 +334,6 @@ li {
 
 .name-list:hover {
   color: rgb(235, 67, 55);
-}
-
-.active {
-  padding: 3px 18px 3px 5px;
-  color: rgb(228, 9, 9);
-  background-color: rgba(255, 255, 255, 0.842);
-  transition: 0.3s;
 }
 
 .modal-footer button {
@@ -375,11 +386,6 @@ li {
 /* .skill-name {
   margin-bottom: 10%;
 } */
-
-.name-list {
-  display: flex;
-  justify-content: space-between;
-}
 
 .app-message__input {
   min-height: 0.1em;

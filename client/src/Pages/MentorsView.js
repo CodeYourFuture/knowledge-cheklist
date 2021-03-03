@@ -63,21 +63,23 @@ function MentorsView() {
           <h2 className="mentor-greet">Students List:</h2>
           <ul className="student-list">
             {studentList.map(({ user_id, first_name, last_name }) => {
-              console.log(user_id);
               return (
                 <li key={user_id} className="students-name">
                   <Link
                     onClick={() => setBg({ activeIndex: user_id })}
                     to={`./MentorsView?studentId=${user_id}`}
-                    className="name-list"
+                    className="name-list d-flex"
                   >
                     <div
                       className={`${
                         user_id == bg.activeIndex ? "active" : "inactive"
                       }`}
-                    >{`${first_name} ${last_name}`}</div>
-
-                    <i class="fas fa-arrow-right"></i>
+                    >
+                      <div>{`${first_name} ${last_name}`}</div>
+                      <div className="icon">
+                        <i class="fas fa-arrow-right "></i>
+                      </div>
+                    </div>
                   </Link>
                 </li>
               );
