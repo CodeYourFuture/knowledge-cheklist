@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 
 export default function Modal({ role }) {
-  console.log(role);
   return (
     <Jumbotron>
       <Container>
