@@ -3,13 +3,14 @@ import StudentResultsContainer from "../components/StudentResultsContainer";
 import { Link, useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import useQuery from "../components/useQuery"
+import useQuery from "../components/useQuery";
 
 function MentorsView() {
   const [studentList, setStudentList] = useState([]);
+  const [bg, setBg] = useState("");
 
   let history = useHistory();
-const [mentorName, setMentorName] = useState(null);
+  const [mentorName, setMentorName] = useState(null);
 
   useEffect(() => {
     fetch(`/api/verify`)
@@ -20,7 +21,7 @@ const [mentorName, setMentorName] = useState(null);
         return res.json();
       })
       .then((data) => {
-        setMentorName(data.name)
+        setMentorName(data.name);
         if (data == "not authorized" || data.role == "Student") {
           history.push("/");
         }
@@ -53,8 +54,6 @@ const [mentorName, setMentorName] = useState(null);
     </a>
   );
 
-
-
   return (
     <div className="mentorsview-page">
       <Header editLearningObjectives={editLearningObjectives} />
@@ -64,16 +63,21 @@ const [mentorName, setMentorName] = useState(null);
           <h2 className="mentor-greet">Students List:</h2>
           <ul className="student-list">
             {studentList.map(({ user_id, first_name, last_name }) => {
+              console.log(user_id);
               return (
-                <li key={user_id} className="students-name ">
+                <li key={user_id} className="students-name">
                   <Link
+                    onClick={() => setBg({ activeIndex: user_id })}
                     to={`./MentorsView?studentId=${user_id}`}
                     className="name-list"
                   >
-                    <div>{`${first_name} ${last_name}`}</div>
-                    <div>
-                      <i class="fas fa-arrow-right"></i>
-                    </div>
+                    <div
+                      className={`${
+                        user_id == bg.activeIndex ? "active" : "inactive"
+                      }`}
+                    >{`${first_name} ${last_name}`}</div>
+
+                    <i class="fas fa-arrow-right"></i>
                   </Link>
                 </li>
               );

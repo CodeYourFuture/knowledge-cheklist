@@ -295,6 +295,36 @@ li {
   font-size: larger;
 }
 
+.inactive {
+  color: #d1d1d1;
+  margin-right: 3px;
+}
+
+.students-name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  width: 100%;
+}
+
+.inactive:hover {
+  color: rgb(235, 67, 55);
+}
+
+.student-list {
+  padding-left: 10px;
+}
+
+.name-list:hover {
+  color: rgb(235, 67, 55);
+}
+
+.active {
+  padding: 3px 18px 3px 5px;
+  color: rgb(228, 9, 9);
+  background-color: rgba(255, 255, 255, 0.842);
+  transition: 0.3s;
+}
+
 .modal-footer button {
   background-color: #db4437;
 }
@@ -350,15 +380,6 @@ li {
   display: flex;
   justify-content: space-between;
 }
-
-/* .student-list {
-  position: relative;
-} */
-
-/* .students-name {
-  position: absolute;
-  margin-left: 10%;
-} */
 
 .app-message__input {
   min-height: 0.1em;
