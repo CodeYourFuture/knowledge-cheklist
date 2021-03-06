@@ -19,7 +19,9 @@
     "db-migrate": "db-migrate",
     "db-loadfixtures" : "node scripts/loadDatabaseFixtures.js",
     "db-migrate-staging" : "DATABASE_URL=$(heroku config:get DATABASE_URL --app cyf-knowledge-checklist) db-migrate up --env dev",
-    "db-loadfixtures-staging" : "DATABASE_URL=$(heroku config:get DATABASE_URL --app cyf-knowledge-checklist) node scripts/loadDatabaseFixtures.js"
+    "db-loadfixtures-staging" : "DATABASE_URL=$(heroku config:get DATABASE_URL --app cyf-knowledge-checklist) node scripts/loadDatabaseFixtures.js",
+    "db-migrate-production" : "db-migrate up --env production",
+    "db-loadfixtures-production": "node scripts/loadDatabaseFixtures.js"
   },
   "repository": {
     "type": "git",
