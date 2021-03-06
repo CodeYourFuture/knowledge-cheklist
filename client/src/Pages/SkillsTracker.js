@@ -12,7 +12,6 @@ export default function Html({ skill }) {
           throw data;
         }
         setLearningObjectives(data);
-        console.log(data);
       });
   };
   useEffect(fetchLearningObj, [skill]);
@@ -38,36 +37,12 @@ export default function Html({ skill }) {
     setLearningObjectives(
       learningObjectives.map((obj) => {
         if (obj.id === id) {
-          console.log( {obj} );
           return { ...obj, ability: newAbility };
         }
         return obj;
       })
     );
   }
-
-  /// update deslect
-
-  function deselect (studentId, ability, learningObjId) {
-    console.log(studentId, ability, learningObjId);
-    fetch(`/api/deselect`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ability: ability,
-        learning_obj_id: learningObjId,
-        student_id: studentId
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-       console.log(data);
-      })
-      .then(fetchLearningObj);
-  }
-
 
   return (
     <div className="learning-objective-container">
@@ -84,7 +59,7 @@ export default function Html({ skill }) {
               {description}
 
               <ProgressTrackingButtons
-                deselect={deselect}
+             
                 ability={ability}
                 updateAbility={updateAbility}
                 learningObjId={id}
