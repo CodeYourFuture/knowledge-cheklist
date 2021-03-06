@@ -15,7 +15,6 @@ export default function LoginForm() {
       .then((res) => res.json())
       .then((data) => {
         setClientId(data.github_client_id);
-        console.log(data);
       });
   };
 
@@ -37,7 +36,7 @@ export default function LoginForm() {
             href={`https://github.com/login/oauth/authorize?client_id=${REACT_APP_GITHUB_CLIENT_ID}`}
             className="register text-white btn btn-dark   text-center "
           >
-            <i class="fab fa-github"></i> Sign in with Github
+            <i className="fab fa-github"></i> Sign in with Github
           </a>
         </div>
       </Container>

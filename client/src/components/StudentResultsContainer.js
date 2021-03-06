@@ -12,15 +12,12 @@ function StudentResultsContainer({ studentId, studentName }) {
         if (data.error) {
           throw data;
         }
-        console.log(data);
         setStudentDetail(data);
       });
   };
 
   useEffect(fetchDetails, [studentId]);
   const abilityLength = [];
-  console.log(abilityLength);
-
   return (
     <Container className="learning-objective-container">
       <h2>{studentName}</h2>
