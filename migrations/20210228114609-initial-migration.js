@@ -23,6 +23,7 @@ exports.up = function (db) {
     user_email: { type: "string", notNull: true, length: 255, unique: true },
     user_slack: { type: "string", length: 255 },
     user_github: { type: "string", length: 255 },
+    cyf_city: { type: "string", notNull: true, length: 255 },
     class_id: { type: "int", notNull: true },
     github_id: { type: "int", notNull: true, unique: true },
   });
