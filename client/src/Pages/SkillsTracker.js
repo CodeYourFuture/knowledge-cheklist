@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ProgressTrackingButtons from "../components/ProgressTrackingButtons";
 
 export default function Html({ skill }) {
- 
   const [learningObjectives, setLearningObjectives] = useState([]);
   const fetchLearningObj = () => {
     fetch(`/api/learningobjectives/${skill}`)
@@ -16,7 +15,6 @@ export default function Html({ skill }) {
   };
   useEffect(fetchLearningObj, [skill]);
   // call fetch here
-
   function updateAchievement(newAbility, id) {
     fetch(`/api/abilities`, {
       method: "POST",
@@ -45,25 +43,48 @@ export default function Html({ skill }) {
     );
   }
 
+  /// update deslect
+
+  function deselect(studentId, ability, learningObjId) {
+    fetch(`/api/deselect`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ability: ability,
+        learning_obj_id: learningObjId,
+        student_id: studentId,
+      }),
+    })
+      .then((response) => response.json())
+      .then(fetchLearningObj);
+  }
+
   return (
     <div className="learning-objective-container">
       <ul>
-        {learningObjectives.map(({ description, id, ability }, index) => {
-          function updateAbility(newAbility) {
-            updateAchievement(newAbility, id);
-          }
-          return (
-            <li key={index}>
-              {description}
+        {learningObjectives.map(
+          ({ description, id, ability, student_id }, index) => {
+            function updateAbility(newAbility) {
+              updateAchievement(newAbility, id);
+            }
 
-              <ProgressTrackingButtons
-                ability={ability}
-                updateAbility={updateAbility}
-                learningObjId={id}
-              />
-            </li>
-          );
-        })}
+            return (
+              <li key={index}>
+                {description}
+
+                <ProgressTrackingButtons
+                  deselect={deselect}
+                  ability={ability}
+                  updateAbility={updateAbility}
+                  learningObjId={id}
+                  student_id={student_id}
+                />
+              </li>
+            );
+          }
+        )}
       </ul>
     </div>
   );
