@@ -255,13 +255,16 @@ router.get("/githubAuth", async (req, res) => {
       "select * from users where github_id=$1",
       [githubId]
     );
+
     if (user.rows.length === 0) {
       req.session.githubId = githubId;
       const params = new URLSearchParams({
         githubUserName,
         githubId,
       }).toString();
+
       res.redirect(`/signup?${params}`);
+      return;
     }
 
     req.session.user = {
@@ -274,7 +277,7 @@ router.get("/githubAuth", async (req, res) => {
       req.session.user.role === "Student" ? "/skills" : "/MentorsView"
     );
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
     res.status(500).send("server error auth");
   }
 });
