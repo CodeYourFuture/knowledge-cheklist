@@ -16,26 +16,25 @@ exports.setup = function (options, seedLink) {
 
 exports.up = function (db) {
   const userPromise = db.createTable("users", {
-    user_id: { type: "int", primaryKey: true, autoIncremen: true },
+    user_id: { type: "int", primaryKey: true, autoIncrement: true },
     first_name: { type: "string", notNull: true, length: 255 },
     last_name: { type: "string", notNull: true, length: 255 },
     user_role: { type: "string", notNull: true, length: 255 },
     user_email: { type: "string", notNull: true, length: 255, unique: true },
     user_slack: { type: "string", length: 255 },
-    user_github: { type: "string", length: 255 },
-    cyf_city: { type: "string", notNull: true, length: 255 },
+    user_githib: { type: "string", length: 255 },
     class_id: { type: "int", notNull: true },
     github_id: { type: "int", notNull: true, unique: true },
   });
 
   const learningObjectivePromise = db.createTable("learning_objective", {
-    id: { type: "int", primaryKey: true, autoIncremen: true },
+    id: { type: "int", primaryKey: true, autoIncrement: true },
     skill: { type: "string", notNull: true, length: 255 },
     description: { type: "string", notNull: true, length: 255 },
   });
 
   const achievementsPromise = db.createTable("achievements", {
-    id: { type: "int", primaryKey: true, autoIncremen: true },
+    id: { type: "int", primaryKey: true, autoIncrement: true },
     student_id: {
       type: "int",
       foreignKey: {
