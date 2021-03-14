@@ -609,32 +609,32 @@
   {
     "id": 106,
     "skill": "javascript",
-    "description": "The learner should understand the value of thorough and comprehensive debugging"
+    "description": "Can understand the value of thorough and comprehensive debugging"
   },
   {
     "id": 107,
     "skill": "javascript",
-    "description": "The learner should be able to use error messages to debug simple logical or syntactical errors in their code"
+    "description": "Can use error messages to debug simple logical or syntactical errors in their code"
   },
   {
     "id": 108,
     "skill": "javascript",
-    "description": "The learner should be able to modify an existing program to solve errors"
+    "description": "Can modify an existing program to solve errors"
   },
   {
     "id": 109,
     "skill": "javascript",
-    "description": "The learner should understand what the acronym API means"
+    "description": "Can answer : what the acronym API means"
   },
   {
     "id": 110,
     "skill": "javascript",
-    "description": "The learner can define what an API's purpose is and why it is useful"
+    "description": "Can define what an API's purpose is and why it is useful"
   },
   {
     "id": 111,
     "skill": "javascript",
-    "description": "The learner should be able to edit the structure of a API URL and to change the data retrieved from the server"
+    "description": "Can edit the structure of a API URL and to change the data retrieved from the server"
   },
   {
     "id": 112,
@@ -644,47 +644,47 @@
   {
     "id": 113,
     "skill": "javascript",
-    "description": "The learner should understand what fetch is and what it is used for"
+    "description": "Can answer: what fetch is and what it is used for"
   },
   {
     "id": 114,
     "skill": "javascript",
-    "description": "The learner should be able to use fetch to retrieve JSON from an API"
+    "description": "Can use fetch to retrieve JSON from an API"
   },
   {
     "id": 115,
     "skill": "javascript",
-    "description": "The learner should be able to parse the JSON and extract data from it"
+    "description": "Can parse the JSON and extract data from it"
   },
   {
     "id": 116,
     "skill": "javascript",
-    "description": "The learner should be able to use DOM manipulation to add content to the DOM"
+    "description": "Can use DOM manipulation to add content to the DOM"
   },
   {
     "id": 117,
     "skill": "javascript",
-    "description": "The learner should understand window.onload and document.onload and should be able to assign functions to run at specific life cycle events"
+    "description": "Can understand window.onload and document.onload and should be able to assign functions to run at specific life cycle events"
   },
   {
     "id": 118,
     "skill": "javascript",
-    "description": "The learner should understand the concept of variable scope and be able to define them in global, local and block scope"
+    "description": "Can understand the concept of variable scope and be able to define them in global, local and block scope"
   },
   {
     "id": 119,
     "skill": "javascript",
-    "description": "The learner should be able to use destructuring to extract data from arrays"
+    "description": "Can use destructuring to extract data from arrays"
   },
   {
     "id": 120,
     "skill": "javascript",
-    "description": "The learner can describe why you would want to use array destructuring"
+    "description": "Can describe why you would want to use array destructuring"
   },
   {
     "id": 121,
     "skill": "javascript",
-    "description": "The learner can describe why you would want to use array destructuring"
+    "description": "Can describe why you would want to use array destructuring"
   },
 
 
@@ -701,12 +701,12 @@
   {
     "id": 124,
     "skill": "react",
-    "description": "Use interpolation ({}) to insert JavaScript expressions into JSX"
+    "description": "Can use interpolation ({}) to insert JavaScript expressions into JSX"
   },
   {
     "id": 125,
     "skill": "react",
-    "description": "Can be be able to distinguish between them when reading"
+    "description": "Can distinguish between them when reading"
   },
   {
     "id": 126,
@@ -731,17 +731,17 @@
   {
     "id": 130,
     "skill": "react",
-    "description": "Able to pass functions to event handlers"
+    "description": "Can pass functions to event handlers"
   },
   {
     "id": 131,
     "skill": "react",
-    "description": "Able to log to the console when a button is clicked"
+    "description": "Can log to the console when a button is clicked"
   },
   {
     "id": 132,
     "skill": "react",
-    "description": "User can be able to pass as props"
+    "description": "Can pass a props"
   },
   {
     "id": 133,
@@ -756,32 +756,32 @@
   {
     "id": 135,
     "skill": "react",
-    "description": "Able to import useState from the React package."
+    "description": "Can import useState from the React package."
   },
   {
     "id": 136,
     "skill": "react",
-    "description": "Able to Initialise with a value with useState(initialValue)."
+    "description": "Can initialise with a value with useState(initialValue)."
   },
   {
     "id": 137,
     "skill": "react",
-    "description": "Able to destructure state variable into [stateValue, setStateValue]."
+    "description": "Can destructure state variable into [stateValue, setStateValue]."
   },
   {
     "id": 138,
     "skill": "react",
-    "description": "Able to render state variables to the view."
+    "description": "Can render state variables to the view."
   },
   {
     "id": 139,
     "skill": "react",
-    "description": "Able to update with a new value with setStateValue(newValue)."
+    "description": "Can update with a new value with setStateValue(newValue)."
   },
   {
     "id": 140,
     "skill": "react",
-    "description": "Able to Identify when to use props or state."
+    "description": "Can identify when to use props or state."
   },
   {
     "id": 141,
@@ -791,12 +791,12 @@
   {
     "id": 142,
     "skill": "react",
-    "description": "Be able to trigger fetch() using the useEffect() callback, with an empty array ([]) as the 2nd dependencies argument."
+    "description": "Can trigger fetch() using the useEffect() callback, with an empty array ([]) as the 2nd dependencies argument."
   },
   {
     "id": 143,
     "skill": "react",
-    "description": "Be able to store data from a successful API call in state."
+    "description": "Can store data from a successful API call in state."
   },
   {
     "id": 144,
@@ -806,7 +806,7 @@
   {
     "id": 145,
     "skill": "react",
-    "description": "Be able to fix a component with an effect dependent on props using the useEffect() dependencies."
+    "description": "Can fix a component with an effect dependent on props using the useEffect() dependencies."
   },
 
   {
@@ -827,7 +827,7 @@
   {
     "id": 149,
     "skill": "react",
-    "description": "Be able to set the input value to the state variable."
+    "description": "Can set the input value to the state variable."
   },
   {
     "id": 150,
@@ -837,7 +837,7 @@
   {
     "id": 151,
     "skill": "react",
-    "description": "Be able to update the state using an onChange handler."
+    "description": "Can update the state using an onChange handler."
   },
   {
     "id": 152,
@@ -847,25 +847,25 @@
   {
     "id": 153,
     "skill": "react",
-    "description": "Be able to collect the form state variables and use them (setting state, POST request)."
+    "description": "Can collect the form state variables and use them (setting state, POST request)."
   },
 
 
 {
     "id":154,
     "skill": "node",
-    "description": "Able to define what an API is used for"
+    "description": "Can define what an API is used for"
   },
 {
     "id":155 ,
     "skill": "node",
-    "description": "Able to use Glitch to deploy and edit express servers"
+    "description": "Can use Glitch to deploy and edit express servers"
   },
 
 {
     "id":156 ,
     "skill": "node",
-    "description": "Able to use ‘npm’ to start a node server"
+    "description": "Can use ‘npm’ to start a node server"
   },
 {
     "id": 157,
@@ -875,7 +875,7 @@
 {
     "id":158,
     "skill": "node",
-    "description": "Able to use express to create an API that will accept a ‘GET’ request that returns JSON"
+    "description": "Can use express to create an API that will accept a ‘GET’ request that returns JSON"
   },
 
 {
@@ -965,17 +965,17 @@
   {
     "id": 174,
     "skill": "sql",
-    "description": "Able to retrieve data from a table using PostgreSQL"
+    "description": "Can retrieve data from a table using PostgreSQL"
   },
   {
     "id": 175,
     "skill": "sql",
-    "description": "Be able to retrieve data from a table using conditionals in PostgreSQL"
+    "description": "Can retrieve data from a table using conditionals in PostgreSQL"
   },
   {
     "id": 176,
     "skill": "sql",
-    "description": "Be able to list the different kinds of data that can be held in a PostgreSQL database"
+    "description": "Can list the different kinds of data that can be held in a PostgreSQL database"
   },
   {
     "id": 177,
@@ -990,22 +990,22 @@
   {
     "id": 179,
     "skill": "sql",
-    "description": "Be able to update rows in a pre-existing table using PostgreSQL using UPDATE"
+    "description": "Can update rows in a pre-existing table using PostgreSQL using UPDATE"
  },
   {
     "id": 180,
     "skill": "sql",
-    "description": "Be able to Combine tables together using PostgreSQL using INNER JOIN"
+    "description": "Can combine tables together using PostgreSQL using INNER JOIN"
  },
   {
     "id": 181,
     "skill": "sql",
-    "description": "Be able to connect a PostgreSQL database to a NodeJS application"
+    "description": "Can connect a PostgreSQL database to a NodeJS application"
  },
   {
     "id": 182,
     "skill": "sql",
-    "description": "Be able to Retrieve data from a PostgreSQL database in a NodeJS application"
+    "description": "Can retrieve data from a PostgreSQL database in a NodeJS application"
  },
   {
     "id": 183,
@@ -1020,7 +1020,7 @@
   {
     "id": 185,
     "skill": "sql",
-    "description": "Be aware of the dangers of SQL injection attacks, and how to avoid them"
+    "description": "Can be dangers of SQL injection attacks, and how to avoid them"
  },
   {
     "id": 186,
