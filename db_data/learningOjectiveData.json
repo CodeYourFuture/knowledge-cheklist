@@ -1,1041 +1,811 @@
 [
   {
-    "id": 1,
     "skill": "html",
     "description": "Can answer: What is an HTML tag?"
   },
   {
-    "id": 2,
     "skill": "html",
     "description": "Can: identify opening and closing tags."
   },
   {
-    "id": 3,
     "skill": "html",
     "description": "Can answer: What is an HTML attribute?"
   },
   {
-    "id": 4,
     "skill": "html",
     "description": "Can: identify attribute names and attribute values."
   },
   {
-    "id": 5,
     "skill": "html",
     "description": "Can answer: What is an HTML element?"
   },
 
-{
-    "id": 6,
+  {
     "skill": "html",
     "description": " Can answer: What are 'parent' and 'child' elements?"
-
   },
-{
-    "id": 7,
+  {
     "skill": "html",
     "description": " Can: identify parent and children elements."
-
   },
 
-{
-    "id": 8,
+  {
     "skill": "html",
     "description": " Can: identify first child of an element."
-
   },
 
-{
-    "id": 9,
+  {
     "skill": "html",
     "description": " Can: write a simple html fragment, correctly observing syntax when nesting one tag within another."
-
   },
-  
 
-{
-    "id": 10,
+  {
     "skill": "html",
     "description": " Can: recognise when elements are incorrectly nested, in a short HTML extract."
-
   },
-{
-    "id": 11,
+  {
     "skill": "html",
     "description": " Can answer: What is semantic HTML?"
-
   },
 
-{
-    "id": 12,
+  {
     "skill": "html",
     "description": " Can answer: What are some semantic HTML tags we can use for the main sections of a typical web page?"
-
   },
-{
-    "id": 13,
+  {
     "skill": "html",
     "description": " Can answer: What are some semantic HTML tags we can use for text content?"
-
   },
 
-{
-    "id": 14,
+  {
     "skill": "html",
     "description": " Can answer: What attribute must we use with every <img> tag?"
-
   },
 
-{
-    "id": 15,
+  {
     "skill": "html",
     "description": " Can answer: Why do we separate HTML, CSS and JavaScript?"
-
   },
 
-{
-    "id": 16,
+  {
     "skill": "html",
     "description": "  Can: recognise a link element linking a css file, and can explain its purpose."
-
   },
-{
-    "id": 17,
+  {
     "skill": "html",
     "description": " Can: add a link element to an HTML file to link to a provided CSS or JS file."
-
   },
 
-{
-    "id": 18,
+  {
     "skill": "html",
     "description": " Can answer: what are HTML forms used for?"
-
   },
 
-{
-    "id": 19,
+  {
     "skill": "html",
     "description": " Can: create a HTML form field"
-
   },
 
-{
-    "id": 20,
+  {
     "skill": "html",
     "description": " Can: create a HTML form label"
-
   },
 
-{
-    "id": 21,
+  {
     "skill": "html",
     "description": " Can: create a HTML form button"
-
   },
 
-{
-    "id": 22,
+  {
     "skill": "html",
     "description": " Can answer: what happens when the user clicks on a form's Submit button?"
-
   },
-{
-    "id": 23,
+  {
     "skill": "html",
     "description": " Can: identify different field types"
-
   },
 
-{
-    "id": 24,
+  {
     "skill": "html",
     "description": " Can: identify the type of form input likely in use in a sample form."
-
   },
-{
-    "id": 25,
+  {
     "skill": "html",
     "description": " Can: select the correct form inputs when building a simple form."
-
   },
 
-{
-    "id": 26,
+  {
     "skill": "html",
     "description": " Can answer: what are HTML fieldsets"
-
   },
 
-{
-    "id": 27,
+  {
     "skill": "html",
     "description": " Can answer: what are HTML form field attributes"
-
   },
 
-{
-    "id": 28,
+  {
     "skill": "html",
-    "description": " Can answer: What's the purpose of a form field's required attribute?" 
-
+    "description": " Can answer: What's the purpose of a form field's required attribute?"
   },
 
-{
-    "id": 29,
+  {
     "skill": "html",
     "description": " Can answer: What's the purpose of a form field's ‘readonly’ ‘value’, or ‘checked’ attributes? "
-
   },
 
-{
-    "id": 30,
+  {
     "skill": "html",
     "description": "Can answer: When should you use GET or POST as a form's method attribute?"
-
   },
 
-{
-    "id": 31,
+  {
     "skill": "html",
-    "description": "Can: answer: What are some ways to make an HTML form more accessible to someone who needs to use a screen reader?" 
-
+    "description": "Can: answer: What are some ways to make an HTML form more accessible to someone who needs to use a screen reader?"
   },
 
-{
-    "id": 32,
+  {
     "skill": "html",
     "description": "Can: manually locate the source of a specific piece of text from a page's rendered view in the source HTML, for a simple case."
-
   },
 
-{
-    "id": 33,
+  {
     "skill": "html",
-    "description": "Can: use the browser's inspector to automatically locate the corresponding source for a given element of the rendered view." 
-
+    "description": "Can: use the browser's inspector to automatically locate the corresponding source for a given element of the rendered view."
   },
 
-{
-    "id": 34,
+  {
     "skill": "html",
     "description": "Can: discover the current box model attributes of an element, using the inspector."
-
   },
 
-
-
-{
-    "id": 35,
+  {
     "skill": "css",
     "description": " Can answer: What is a selector in CSS?"
-
   },
 
-{
-    "id": 36,
+  {
     "skill": "css",
     "description": "Can answer: What is the difference between a tag, class, and ID selector?"
-
   },
 
-{
-    "id": 37,
+  {
     "skill": "css",
     "description": "Can answer: What is an attribute selector in CSS and how does it relate to the HTML code?"
-
   },
 
-{
-    "id": 38,
+  {
     "skill": "css",
     "description": "Can: recognise some simple attribute selectors and state their purpose."
-
   },
 
-{
-    "id": 39,
+  {
     "skill": "css",
     "description": " Can answer: What is a property in CSS?"
   },
-{
-    "id": 40,
+  {
     "skill": "css",
     "description": "Can answer: What is the cascade?"
   },
-{
-    "id": 41,
+  {
     "skill": "css",
     "description": "Can answer: What is the CSS box model?"
   },
 
-{
-    "id": 42,
+  {
     "skill": "css",
     "description": "Can answer: What properties modify the box model in CSS?"
   },
 
-{
-    "id": 43,
+  {
     "skill": "css",
     "description": "Can: identify a diverse set of devices for the web (phone, tablet, laptop, desktop, tv, game console, etc.)"
   },
-{
-    "id": 44,
+  {
     "skill": "css",
     "description": "Can answer: What is responsive web design?"
   },
 
-{
-    "id": 45,
+  {
     "skill": "css",
     "description": "Can answer: what are some ways we might want to have a layout change as we reduce or increase screen size?"
   },
 
-{
-    "id": 46,
+  {
     "skill": "css",
     "description": "Can answer: What is a media query?"
   },
 
-{
-    "id": 47,
+  {
     "skill": "css",
     "description": "Can answer: When would you use a media query?"
   },
 
-{
-    "id": 48,
+  {
     "skill": "css",
     "description": "Can answer: How can I test how a website looks on different screen sizes?"
   },
 
-{
-    "id": 49,
+  {
     "skill": "css",
     "description": "Can answer: What is flexbox?"
   },
-{
-    "id": 50,
+  {
     "skill": "css",
     "description": "Can answer: When would you use flexbox?"
   },
-{
-    "id": 51,
+  {
     "skill": "css",
     "description": "Can answer: What are the different ways to arrange elements using flexbox?"
   },
-{
-    "id": 52,
+  {
     "skill": "css",
     "description": "Can answer: In what ways can you position individual items using flexbox?"
   },
-{
-    "id": 53,
+  {
     "skill": "css",
     "description": "Can answer: In what ways can you position individual items using flexbox?"
   },
 
-
-{
-    "id": 54,
+  {
     "skill": "git",
     "description": "Can: Explain why Git is a useful tool."
   },
 
-{
-    "id": 55,
+  {
     "skill": "git",
     "description": "Can clone a repository."
   },
 
-{
-    "id":56,
+  {
     "skill": "git",
     "description": "Can: commit, fork a repository, and push changes."
   },
 
-{
-    "id":57 ,
+  {
     "skill": "git",
     "description": "Can: use GitHub's pull request workflows, and push further changes."
   },
 
-{
-    "id": 58,
+  {
     "skill": "git",
     "description": "Can: use Git's history log."
   },
 
-
-{
-    "id": 59,
+  {
     "skill": "git",
     "description": "Can: fork a project on GitHub"
   },
 
-{
-    "id": 60,
+  {
     "skill": "git",
     "description": "Can: commit changes locally and push to their fork"
   },
-{
-    "id": 61,
+  {
     "skill": "git",
     "description": "Git Merge Conflicts"
   },
 
   {
-    "id": 62,
     "skill": "javascript",
     "description": "Can use console.log() to print information to the console"
   },
   {
-    "id": 63,
     "skill": "javascript",
     "description": "Can assign data to variables using let and const"
   },
   {
-    "id": 64,
     "skill": "javascript",
     "description": "Can define what expressions and statements are and describe the difference"
   },
   {
-    "id": 65,
     "skill": "javascript",
     "description": "Can write and call functions in JavaScript"
   },
   {
-    "id": 66,
     "skill": "javascript",
     "description": "Can manipulate strings with concatenation and interpolation techniques"
   },
   {
-    "id": 67,
     "skill": "javascript",
     "description": "Can manipulate numbers with mathematical operators and using the Math library"
   },
   {
-    "id": 68,
     "skill": "javascript",
     "description": "Can define the difference between console.log() and return"
   },
   {
-    "id": 69,
     "skill": "javascript",
     "description": "Can call functions within functions"
   },
   {
-    "id": 70,
     "skill": "javascript",
     "description": "Can search and read documentation to help when you are stuck"
   },
   {
-    "id": 71,
     "skill": "javascript",
     "description": "Can define what was a conditional is"
   },
   {
-    "id": 72,
     "skill": "javascript",
     "description": "Can define what for and while loops are and define the difference"
   },
   {
-    "id": 73,
     "skill": "javascript",
     "description": "Can write an if statement using a conditional"
   },
   {
-    "id": 74,
     "skill": "javascript",
     "description": "Can define comparator operators and list the different types"
   },
   {
-    "id": 75,
     "skill": "javascript",
     "description": "Can use comparator operators in an if statement"
   },
   {
-    "id": 76,
     "skill": "javascript",
     "description": "Can define what a logical operator is and give examples"
   },
   {
-    "id": 77,
     "skill": "javascript",
     "description": "Can write functionality that uses the assert module"
   },
   {
-    "id": 78,
     "skill": "javascript",
     "description": "Can describe what an array is and write code that interacts with them"
   },
   {
-    "id": 79,
     "skill": "javascript",
     "description": "Can Describe what an array method is and use them to manipulate an array"
   },
   {
-    "id": 80,
     "skill": "javascript",
     "description": "Can write code that chains array methods together"
   },
   {
-    "id": 81,
     "skill": "javascript",
     "description": "Can define what a callback is"
   },
   {
-    "id": 82,
     "skill": "javascript",
     "description": "Can write code that uses a callback to run code"
   },
   {
-    "id": 83,
     "skill": "javascript",
     "description": "Can define what an anonymous function is"
   },
   {
-    "id": 84,
     "skill": "javascript",
     "description": "Can write code that uses an anonymous function as a callback"
   },
   {
-    "id": 85,
     "skill": "javascript",
     "description": "Can define what an object is in JavaScript"
   },
   {
-    "id": 86,
     "skill": "javascript",
     "description": "Can be able to write code that can use an object to store data"
   },
   {
-    "id": 87,
     "skill": "javascript",
     "description": "Can be able to write code that changes the properties of an object"
   },
   {
-    "id": 88,
     "skill": "javascript",
     "description": "Can Be able to write code that can retrieve data from an object"
   },
   {
-    "id": 89,
     "skill": "javascript",
     "description": "Can write and call methods inside JavaScript objects"
   },
   {
-    "id": 90,
     "skill": "javascript",
     "description": "Can use Objects when contained inside an array"
   },
   {
-    "id": 91,
     "skill": "javascript",
     "description": "Can write code that uses objects built-in methods"
   },
   {
-    "id": 92,
     "skill": "javascript",
     "description": "Can write code that can iterate through an object"
   },
   {
-    "id": 93,
     "skill": "javascript",
     "description": "Can define what the DOM is and what it does"
   },
   {
-    "id": 94,
     "skill": "javascript",
     "description": "Can use query selectors to retrieve elements from the DOM"
   },
   {
-    "id": 95,
     "skill": "javascript",
     "description": "Can use event listeners to respond to events that happen on the DOM"
   },
   {
-    "id": 96,
     "skill": "javascript",
     "description": "Can create DOM elements using JavaScript and add them to the DOM"
   },
   {
-    "id": 97,
     "skill": "javascript",
     "description": "Can manipulate DOM elements using JavaScript to change their properties"
   },
   {
-    "id": 98,
     "skill": "javascript",
     "description": "Can define the difference between synchronous and asynchronous code"
   },
   {
-    "id": 99,
     "skill": "javascript",
     "description": "Can describe why writing asynchronous code is important when working with the internet"
   },
   {
-    "id": 100,
     "skill": "javascript",
     "description": "Can write code that is able to pass a function to another function as a parameter and run it"
   },
   {
-    "id": 101,
     "skill": "javascript",
     "description": "Can use callbacks to run code at some point in the future"
   },
   {
-    "id": 102,
     "skill": "javascript",
     "description": "Can define a client's and server's role in the client/server architecture"
   },
   {
-    "id": 103,
     "skill": "javascript",
     "description": "Can describe the difference between a GET and POST request"
   },
   {
-    "id": 104,
     "skill": "javascript",
     "description": "Can explain how resources are loaded on the internet using GET and POST"
   },
   {
-    "id": 105,
     "skill": "javascript",
     "description": "Can list the steps that a browser does when loading a website from the internet"
   },
 
   {
-    "id": 106,
     "skill": "javascript",
     "description": "Can understand the value of thorough and comprehensive debugging"
   },
   {
-    "id": 107,
     "skill": "javascript",
     "description": "Can use error messages to debug simple logical or syntactical errors in their code"
   },
   {
-    "id": 108,
     "skill": "javascript",
     "description": "Can modify an existing program to solve errors"
   },
   {
-    "id": 109,
     "skill": "javascript",
     "description": "Can answer : what the acronym API means"
   },
   {
-    "id": 110,
     "skill": "javascript",
     "description": "Can define what an API's purpose is and why it is useful"
   },
   {
-    "id": 111,
     "skill": "javascript",
     "description": "Can edit the structure of a API URL and to change the data retrieved from the server"
   },
   {
-    "id": 112,
     "skill": "javascript",
     "description": "The learner should be able to define what a Promise is"
   },
   {
-    "id": 113,
     "skill": "javascript",
     "description": "Can answer: what fetch is and what it is used for"
   },
   {
-    "id": 114,
     "skill": "javascript",
     "description": "Can use fetch to retrieve JSON from an API"
   },
   {
-    "id": 115,
     "skill": "javascript",
     "description": "Can parse the JSON and extract data from it"
   },
   {
-    "id": 116,
     "skill": "javascript",
     "description": "Can use DOM manipulation to add content to the DOM"
   },
   {
-    "id": 117,
     "skill": "javascript",
     "description": "Can understand window.onload and document.onload and should be able to assign functions to run at specific life cycle events"
   },
   {
-    "id": 118,
     "skill": "javascript",
     "description": "Can understand the concept of variable scope and be able to define them in global, local and block scope"
   },
   {
-    "id": 119,
     "skill": "javascript",
     "description": "Can use destructuring to extract data from arrays"
   },
   {
-    "id": 120,
     "skill": "javascript",
     "description": "Can describe why you would want to use array destructuring"
   },
   {
-    "id": 121,
     "skill": "javascript",
     "description": "Can describe why you would want to use array destructuring"
   },
 
-
   {
-    "id": 122,
     "skill": "react",
     "description": "Create a React application with create-react-app"
   },
   {
-    "id": 123,
     "skill": "react",
     "description": "Create a React function component"
   },
   {
-    "id": 124,
     "skill": "react",
     "description": "Can use interpolation ({}) to insert JavaScript expressions into JSX"
   },
   {
-    "id": 125,
     "skill": "react",
     "description": "Can distinguish between them when reading"
   },
   {
-    "id": 126,
     "skill": "react",
     "description": "Can render a list using the .map method"
   },
   {
-    "id": 127,
     "skill": "react",
     "description": "Can render components conditionally using ternary operator and logical AND (&&)"
   },
   {
-    "id": 128,
     "skill": "react",
     "description": "Can add styles to elements using className (instead of class attribute)"
   },
   {
-    "id": 129,
     "skill": "react",
     "description": "Can explain why calling event handlers in JSX (e.g. onClick={handleClick()}) is incorrect"
   },
   {
-    "id": 130,
     "skill": "react",
     "description": "Can pass functions to event handlers"
   },
   {
-    "id": 131,
     "skill": "react",
     "description": "Can log to the console when a button is clicked"
   },
   {
-    "id": 132,
     "skill": "react",
     "description": "Can pass a props"
   },
   {
-    "id": 133,
     "skill": "react",
     "description": "Can explain that React handles updating the DOM when components are re-rendered."
   },
   {
-    "id": 134,
     "skill": "react",
     "description": "Can explain that this makes code more understandable, as we don't need to worry about managing the DOM."
   },
   {
-    "id": 135,
     "skill": "react",
     "description": "Can import useState from the React package."
   },
   {
-    "id": 136,
     "skill": "react",
     "description": "Can initialise with a value with useState(initialValue)."
   },
   {
-    "id": 137,
     "skill": "react",
     "description": "Can destructure state variable into [stateValue, setStateValue]."
   },
   {
-    "id": 138,
     "skill": "react",
     "description": "Can render state variables to the view."
   },
   {
-    "id": 139,
     "skill": "react",
     "description": "Can update with a new value with setStateValue(newValue)."
   },
   {
-    "id": 140,
     "skill": "react",
     "description": "Can identify when to use props or state."
   },
   {
-    "id": 141,
     "skill": "react",
     "description": "Can explain why a loading state is necessary when fetching data as the result is not available on the initial render."
   },
   {
-    "id": 142,
     "skill": "react",
     "description": "Can trigger fetch() using the useEffect() callback, with an empty array ([]) as the 2nd dependencies argument."
   },
   {
-    "id": 143,
     "skill": "react",
     "description": "Can store data from a successful API call in state."
   },
   {
-    "id": 144,
     "skill": "react",
     "description": "Can explain why a component with an effect dependent on props is broken with empty useEffect() dependencies ([])."
   },
   {
-    "id": 145,
     "skill": "react",
     "description": "Can fix a component with an effect dependent on props using the useEffect() dependencies."
   },
 
   {
-    "id": 146,
     "skill": "react",
     "description": "Can describe the 'lifecycle' of a component with useEffect() when props change."
   },
   {
-    "id": 147,
     "skill": "react",
     "description": "Can Create a simple form in React using the controlled component pattern."
   },
   {
-    "id": 148,
     "skill": "react",
     "description": "Can initialise state with useState()."
   },
   {
-    "id": 149,
     "skill": "react",
     "description": "Can set the input value to the state variable."
   },
   {
-    "id": 150,
     "skill": "react",
     "description": "Can explain why the input does not change when typing if onChange is not set."
   },
   {
-    "id": 151,
     "skill": "react",
     "description": "Can update the state using an onChange handler."
   },
   {
-    "id": 152,
     "skill": "react",
     "description": "Can use data from a submitted form to update the application."
   },
   {
-    "id": 153,
     "skill": "react",
     "description": "Can collect the form state variables and use them (setting state, POST request)."
   },
 
-
-{
-    "id":154,
+  {
     "skill": "node",
     "description": "Can define what an API is used for"
   },
-{
-    "id":155 ,
+  {
     "skill": "node",
     "description": "Can use Glitch to deploy and edit express servers"
   },
 
-{
-    "id":156 ,
+  {
     "skill": "node",
     "description": "Can use ‘npm’ to start a node server"
   },
-{
-    "id": 157,
+  {
     "skill": "node",
     "description": "Can: Explain what ‘express’ is and what it is used for"
   },
-{
-    "id":158,
+  {
     "skill": "node",
     "description": "Can use express to create an API that will accept a ‘GET’ request that returns JSON"
   },
 
-{
-    "id":159 ,
+  {
     "skill": "node",
     "description": "Can: implement routing to return different resources depending on URL"
   },
 
-{
-    "id":160 ,
+  {
     "skill": "node",
     "description": "Can: implement query params to return different content ‘(?query=ses)’"
   },
-{
-    "id": 161,
+  {
     "skill": "node",
     "description": "Can: Define what each part of CRUD is and what it does"
   },
 
-{
-    "id":162,
+  {
     "skill": "node",
     "description": "Can: Process a GET request using Express and Node to retrieve data from memory"
   },
 
-{
-    "id":163 ,
+  {
     "skill": "node",
     "description": "Can: Process a POST request using Express and Node and store data in memory"
   },
 
-{
-    "id":164 ,
+  {
     "skill": "node",
     "description": "Can: Process a DELETE request using Express and Node to remove data from memory"
   },
 
-{
-    "id": 165,
+  {
     "skill": "node",
     "description": "Can: Install a third party library using npm"
   },
 
-{
-    "id":166,
+  {
     "skill": "node",
     "description": "Can: Process an PUT request using Express and Node to update data in memory"
   },
 
-{
-    "id":167 ,
+  {
     "skill": "node",
     "description": "Can: Upload their node app to the internet so it can be accessed anywhere using Heroku"
   },
 
-
   {
-    "id": 168,
     "skill": "sql",
     "description": "Can explain why databases are needed in Web Development"
   },
   {
-    "id": 169,
     "skill": "sql",
     "description": "Can define what SQL is and what it is used for"
   },
   {
-    "id": 170,
     "skill": "sql",
     "description": "Can describe what table, rows and columns are used for in a relational database"
   },
   {
-    "id": 171,
     "skill": "sql",
     "description": "Can install and create a database using PostgreSQL"
   },
   {
-    "id": 172,
     "skill": "sql",
     "description": "Can create a table in a database using PostgreSQL"
   },
   {
-    "id": 173,
     "skill": "sql",
     "description": "Can insert data into a table using PostgreSQL"
   },
   {
-    "id": 174,
     "skill": "sql",
     "description": "Can retrieve data from a table using PostgreSQL"
   },
   {
-    "id": 175,
     "skill": "sql",
     "description": "Can retrieve data from a table using conditionals in PostgreSQL"
   },
   {
-    "id": 176,
     "skill": "sql",
     "description": "Can list the different kinds of data that can be held in a PostgreSQL database"
   },
   {
-    "id": 177,
     "skill": "sql",
     "description": "Can add and remove columns in a pre-existing table using PostgreSQL using ALTER"
   },
   {
-    "id": 178,
     "skill": "sql",
     "description": "Be able to rename tables and columns in a pre-existing table using PostgreSQL using DELETE"
   },
   {
-    "id": 179,
     "skill": "sql",
     "description": "Can update rows in a pre-existing table using PostgreSQL using UPDATE"
- },
+  },
   {
-    "id": 180,
     "skill": "sql",
     "description": "Can combine tables together using PostgreSQL using INNER JOIN"
- },
+  },
   {
-    "id": 181,
     "skill": "sql",
     "description": "Can connect a PostgreSQL database to a NodeJS application"
- },
+  },
   {
-    "id": 182,
     "skill": "sql",
     "description": "Can retrieve data from a PostgreSQL database in a NodeJS application"
- },
+  },
   {
-    "id": 183,
     "skill": "sql",
     "description": "Can create an API endpoint that can add data to a database"
- },
+  },
   {
-    "id": 184,
     "skill": "sql",
     "description": "Can write code that effectively validates data before adding it to a database"
- },
+  },
   {
-    "id": 185,
     "skill": "sql",
     "description": "Can be dangers of SQL injection attacks, and how to avoid them"
- },
+  },
   {
-    "id": 186,
     "skill": "sql",
     "description": "Can create an API endpoint that can retrieve data from a database with multiple parameters"
- },
+  },
   {
-    "id": 187,
     "skill": "sql",
     "description": "Can create an API endpoint that can update data in a database"
- },
+  },
   {
-    "id": 188,
     "skill": "sql",
     "description": "Can Create an API endpoint that can delete data in a database"
- }
-
+  }
 ]
