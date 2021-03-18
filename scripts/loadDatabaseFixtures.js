@@ -18,7 +18,7 @@ const getFixtures = () => {
 
 const loadFixturesToDb = () => {
   const db = pgp(config);
-  const cs = new pgp.helpers.ColumnSet(["id", "skill", "description"], {
+  const cs = new pgp.helpers.ColumnSet(["skill", "description"], {
     table: "learning_objective",
   });
   let data = getFixtures();
