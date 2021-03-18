@@ -43,24 +43,6 @@ export default function Html({ skill }) {
     );
   }
 
-  /// update deslect
-
-  function deselect(studentId, ability, learningObjId) {
-    fetch(`/api/deselect`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ability: ability,
-        learning_obj_id: learningObjId,
-        student_id: studentId,
-      }),
-    })
-      .then((response) => response.json())
-      .then(fetchLearningObj);
-  }
-
   return (
     <div className="learning-objective-container">
       <ul>
@@ -75,7 +57,6 @@ export default function Html({ skill }) {
                 {description}
 
                 <ProgressTrackingButtons
-                  deselect={deselect}
                   ability={ability}
                   updateAbility={updateAbility}
                   learningObjId={id}
