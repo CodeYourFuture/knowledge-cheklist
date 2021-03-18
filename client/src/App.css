@@ -207,7 +207,6 @@ li {
 .default-skill-display {
   color: rgb(255, 255, 255);
   font-size: 24px;
-  line-height: 50px;
 }
 
 .default-skill-display:hover {
@@ -219,6 +218,7 @@ li {
   background-color: rgb(255, 255, 255);
   padding: 8px;
   border-radius: 5px;
+  padding-right: 0px;
 }
 .skills-container A {
   display: flex;
@@ -227,14 +227,13 @@ li {
   font-size: larger;
   font-weight: 600;
 }
-
 .skills-container .edit-btn:not A:hover {
   border-radius: 4px;
   color: white;
   text-decoration: none;
   border-bottom: 1px solid whites;
   text-align: center;
-}
+} */
 
 .skills-container {
   background-color: #495464;
