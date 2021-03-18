@@ -2,36 +2,41 @@
 
 - clone repo
 - npm install
-- setup your local Postgres SQL database and create a database with database.sql file found in server folder
-- connect the server with local db
-- change config of db according to your database( please note: port in project should match your db)
-- copy example from .env.example to .env file and fill in values eg: jwtSecret=password
+- setup your local Postgres SQL database
+  -to create tables use these db-migration commands:
+  -create github app to login to the knowledge-checklist
+  -create `.env` file and use `.env.example` for reference of configuration
+
+  ### Local db:
+
+  1-for tables use =>`npm run db-migrate`,
+  2-to add learning objectives use => `npm run db-loadfixtures`
+  -In order to connect the server with local db, add configuration from `.env.example` to `.env` file
 
 ## Entry points in the app to get started adding features:
 
 - Client folder ---> src contains all the front-end code.
 - Server Folder contains all the back-end code.
 
-## Design considerations or Trade offs
+# Design considerations or Trade offs
 
 - To keep with Code Your Futures brand colours
 - Frontend:-
   - React Hooks - list available in package json
 - Backend:-
-  - bcrypt : js hashing generator
-  - jsonwebtoken : used for authoration and verification
+  - cookiesesseion : used for authorisation and verification
   - nodejs express : Works well with postgre sql
   - Postgres SQL: open source relational database
 
-## Features or things to add/change/remove in the future
+# Features or things to add/change/remove in the future
 
-- Replace local storage with cookies
-- Add a GitHub or a different 0auth2 to register or login
 - Add a registration policy for mentors (to be be clarified)
 - Add a simple user profile with account settings
 - Mentors view - Add a class overview of skills
+- Add Mongodb and its learning objectives
+- Graphical representation of modules covered for each student
 
-## Scripts
+# Scripts
 
 Various scripts are provided in the package file, but many are helpers for other scripts; here are the ones you'll
 commonly use:
@@ -41,7 +46,19 @@ commonly use:
 - `lint`: runs ESLint against all the JavaScript in the project.
 - `serve`: builds and starts the app in production mode locally.
 
-### Debugging
+## Scripts for db staging and production
+
+### Heroku(staging) db:
+
+- `heroku login`: to Login to Heroku db from any terminal
+- `npm run db-migrate-staging`: to add tables
+- `npm run db-loadfixtures-staging`: to add learning objectives
+
+### Production db:
+
+-For the production there is config file called `config.yml` this will update the db automatically once you push to master branch.
+
+# Debugging
 
 While running the dev mode using `npm run dev`, you can attach the Node debugger to the server process via port 9229.
 If you're using VS Code, a debugging configuration is provided for this.
