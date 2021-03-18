@@ -2,10 +2,9 @@ import { Router } from "express";
 import { Connection } from "./db";
 import { mentorsOnly } from "./middleware/mentorsOnly";
 const router = new Router();
-const bcrypt = require("bcrypt");
-const jwtGenerator = require("./utils/jwtGenerator");
-const validInfo = require("./middleware/validInfo");
-const authorization = require("./middleware/authorization");
+import validInfo from "./middleware/validInfo";
+import authorization from "./middleware/authorization";
+import exchangeCodeForGithubUser from "./utils/exchangeCodeForGithubUser";
 
 router.get("/", (_, res, next) => {
   Connection.connect((err) => {
@@ -15,12 +14,6 @@ router.get("/", (_, res, next) => {
     res.json({ message: "Hello, world!" });
   });
 });
-
-// router.get("/learningobjectives", (req, res) => {
-//   Connection.query("select * from learning_objective ", (error, results) => {
-//     res.json(results.rows);
-//   });
-// });
 
 router.get("/", (_, res, next) => {
   Connection.connect((err) => {
@@ -34,9 +27,6 @@ router.get("/", (_, res, next) => {
 
 router.get("/abilities/:id", authorization, mentorsOnly, (req, res) => {
   const userId = Number(req.params.id);
-  const role = req.user.role;
-  const id = req.user.id;
-
   const queryLo = `select lo.id, lo.skill, description, ability, date_added, a.student_id  from learning_objective lo 
   left join achievements a on lo.id = a.learning_obj_id and a.student_id =$1
   where (a.student_id = $1 or a.student_id is null) order by lo.id;`;
@@ -45,21 +35,16 @@ router.get("/abilities/:id", authorization, mentorsOnly, (req, res) => {
     if (err) {
       console.log(err);
     }
-    //console.log(results.rows);
     res.json(results.rows);
   });
 });
-//<--Get endpoint for learning objectives students view and mentor------------------>
+//<--Get endpoint for learning objectives students view------------------>
 
-router.get("/learningobjectives/:id/:skill", authorization, (req, res) => {
-  const userId = Number(req.params.id);
+router.get("/learningobjectives/:skill", authorization, (req, res) => {
   const skill = req.params.skill;
-  const role = req.user.role;
-  const id = req.user.id;
 
-  if (role === "Student" && id !== userId) {
-    return res.status(401).json("not authorized");
-  }
+  const userId = req.session.user.id;
+
   const queryLo = `select lo.id, lo.skill, description, ability, date_added, a.student_id  from learning_objective lo 
   left join achievements a on lo.id = a.learning_obj_id and a.student_id = $2
   where lo.skill = $1 and (a.student_id = $2 or a.student_id is null) order by lo.id;`;
@@ -68,7 +53,6 @@ router.get("/learningobjectives/:id/:skill", authorization, (req, res) => {
     if (err) {
       console.log(err);
     }
-    //console.log(results.rows);
     res.json(results.rows);
   });
 });
@@ -149,12 +133,13 @@ router.post("/learningobjectives", authorization, mentorsOnly, (req, res) => {
 
 router.post("/abilities", authorization, async (req, res) => {
   const learning_obj_id = Number(req.body.learning_obj_id);
-  const ability = Number(req.body.ability);
-  const student_id = req.user.id;
+  const ability = req.body.ability;
+  const student_id = req.session.user.id;
   const querySelect = `SELECT * from achievements where learning_obj_id = $1 
                        and student_id = $2  `;
   const queryPost = `INSERT INTO achievements (ability, learning_obj_id, student_id)
                      values($1, $2, $3)`;
+
   const queryUpdate = `update achievements set  ability= $1
                       where learning_obj_id = $2 and student_id =$3`;
 
@@ -165,13 +150,17 @@ router.post("/abilities", authorization, async (req, res) => {
 
   if (results.rowCount > 0) {
     await Connection.query(queryUpdate, [ability, learning_obj_id, student_id]);
-
     res.json("updated");
-  } else {
+  }
+  
+  
+  else {
     await Connection.query(queryPost, [ability, learning_obj_id, student_id]);
     res.json("inserted");
+    console.log("insert", ability);
   }
 });
+
 //<-------------------Delete end point from learning objective---------------------->
 router.delete(
   "/learningobjectives/:id",
@@ -213,50 +202,44 @@ router.post("/register", validInfo, async (req, res) => {
     userRole,
     userEmail,
     userSlack,
-    userPassword,
     userGithub,
     userClassId,
     cyfCity,
   } = req.body;
+
   try {
     const user = await Connection.query(
-      "SELECT * FROM users WHERE user_email = $1",
-      [userEmail]
+      "SELECT * FROM users WHERE github_id = $1",
+      [req.session.githubId]
     );
     if (user.rows.length !== 0) {
       return res.status(401).json({ error: "User already exist!" });
     }
 
-    const salt = await bcrypt.genSalt(10);
-    const bcryptPassword = await bcrypt.hash(userPassword, salt);
-
     let newUser = await Connection.query(
-      "INSERT INTO users (first_name, last_name, user_role,user_email,user_slack,user_password,user_github,class_id, cyf_city)" +
+      "INSERT INTO users (first_name, last_name, user_role,user_email,github_id,user_slack,user_github,class_id, cyf_city)" +
         " VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) returning *",
       [
         firstName,
         lastName,
         userRole,
         userEmail,
+        req.session.githubId,
         userSlack,
-        bcryptPassword,
         userGithub,
         userClassId,
         cyfCity,
       ]
     );
-    const token = jwtGenerator(
-      newUser.rows[0].user_id,
-      newUser.rows[0].user_role,
-      newUser.rows[0].first_name
-    );
-    console.log("here is the token");
-    res.json({
-      token: token,
-      message: "Registered",
+
+    req.session.user = {
       id: newUser.rows[0].user_id,
       role: newUser.rows[0].user_role,
       name: newUser.rows[0].first_name,
+    };
+
+    res.json({
+      message: "Registered",
     });
   } catch (err) {
     console.error(err.message);
@@ -265,56 +248,65 @@ router.post("/register", validInfo, async (req, res) => {
   }
 });
 
-//login route
+///github authorization
 
-router.post("/login", validInfo, async (req, res) => {
-  const { userEmail, userPassword } = req.body;
+router.get("/githubAuth", async (req, res) => {
+  const {
+    id: githubId,
+    login: githubUserName,
+  } = await exchangeCodeForGithubUser(req.query.code);
   try {
     const user = await Connection.query(
-      "select * from users where user_email=$1",
-      [userEmail]
+      "select * from users where github_id=$1",
+      [githubId]
     );
+
     if (user.rows.length === 0) {
-      return res.status(401).json({ error: "Email is not registered" });
-    }
-    const validPassword = await bcrypt.compare(
-      userPassword,
-      user.rows[0].user_password
-    );
-    if (!validPassword) {
-      return res.status(401).json({ error: "Password or Email is incorrect" });
+      req.session.githubId = githubId;
+      const params = new URLSearchParams({
+        githubUserName,
+        githubId,
+      }).toString();
+
+      res.redirect(`/signup?${params}`);
+      return;
     }
 
-    const token = jwtGenerator(
-      user.rows[0].user_id,
-      user.rows[0].user_role,
-      user.rows[0].first_name
-    );
-    res.json({
-      token: token,
-      message: "login successful",
+    req.session.user = {
       id: user.rows[0].user_id,
-      role: user.rows[0].user_role,
       name: user.rows[0].first_name,
-    });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send("server error");
+      role: user.rows[0].user_role,
+    };
+
+    res.redirect(
+      req.session.user.role === "Student" ? "/skills" : "/MentorsView"
+    );
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("server error auth");
   }
 });
 
 router.get("/verify", authorization, async (req, res) => {
   try {
-    console.log("passed the authorization");
-    res.json({
-      id: req.user.id,
-      role: req.user.role,
-      name: req.user.first_name,
-    });
+    res.set("cache-control", "no-store");
+    res.json(req.session.user);
   } catch (err) {
     console.error("error", err.message);
     res.status(500).send("Server error");
   }
 });
+//Logout
+router.all("/logout", (req, res) => {
+  req.session = null;
+  res.redirect("/");
+});
 
+//callback github link
+
+router.get("/github-client-id", (req, res) => {
+  res.json({
+    github_client_id: process.env.REACT_APP_GITHUB_CLIENT_ID,
+  });
+});
 export default router;

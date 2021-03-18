@@ -1,0 +1,811 @@
+[
+  {
+    "skill": "html",
+    "description": "Can answer: What is an HTML tag?"
+  },
+  {
+    "skill": "html",
+    "description": "Can: identify opening and closing tags."
+  },
+  {
+    "skill": "html",
+    "description": "Can answer: What is an HTML attribute?"
+  },
+  {
+    "skill": "html",
+    "description": "Can: identify attribute names and attribute values."
+  },
+  {
+    "skill": "html",
+    "description": "Can answer: What is an HTML element?"
+  },
+
+  {
+    "skill": "html",
+    "description": " Can answer: What are 'parent' and 'child' elements?"
+  },
+  {
+    "skill": "html",
+    "description": " Can: identify parent and children elements."
+  },
+
+  {
+    "skill": "html",
+    "description": " Can: identify first child of an element."
+  },
+
+  {
+    "skill": "html",
+    "description": " Can: write a simple html fragment, correctly observing syntax when nesting one tag within another."
+  },
+
+  {
+    "skill": "html",
+    "description": " Can: recognise when elements are incorrectly nested, in a short HTML extract."
+  },
+  {
+    "skill": "html",
+    "description": " Can answer: What is semantic HTML?"
+  },
+
+  {
+    "skill": "html",
+    "description": " Can answer: What are some semantic HTML tags we can use for the main sections of a typical web page?"
+  },
+  {
+    "skill": "html",
+    "description": " Can answer: What are some semantic HTML tags we can use for text content?"
+  },
+
+  {
+    "skill": "html",
+    "description": " Can answer: What attribute must we use with every <img> tag?"
+  },
+
+  {
+    "skill": "html",
+    "description": " Can answer: Why do we separate HTML, CSS and JavaScript?"
+  },
+
+  {
+    "skill": "html",
+    "description": "  Can: recognise a link element linking a css file, and can explain its purpose."
+  },
+  {
+    "skill": "html",
+    "description": " Can: add a link element to an HTML file to link to a provided CSS or JS file."
+  },
+
+  {
+    "skill": "html",
+    "description": " Can answer: what are HTML forms used for?"
+  },
+
+  {
+    "skill": "html",
+    "description": " Can: create a HTML form field"
+  },
+
+  {
+    "skill": "html",
+    "description": " Can: create a HTML form label"
+  },
+
+  {
+    "skill": "html",
+    "description": " Can: create a HTML form button"
+  },
+
+  {
+    "skill": "html",
+    "description": " Can answer: what happens when the user clicks on a form's Submit button?"
+  },
+  {
+    "skill": "html",
+    "description": " Can: identify different field types"
+  },
+
+  {
+    "skill": "html",
+    "description": " Can: identify the type of form input likely in use in a sample form."
+  },
+  {
+    "skill": "html",
+    "description": " Can: select the correct form inputs when building a simple form."
+  },
+
+  {
+    "skill": "html",
+    "description": " Can answer: what are HTML fieldsets"
+  },
+
+  {
+    "skill": "html",
+    "description": " Can answer: what are HTML form field attributes"
+  },
+
+  {
+    "skill": "html",
+    "description": " Can answer: What's the purpose of a form field's required attribute?"
+  },
+
+  {
+    "skill": "html",
+    "description": " Can answer: What's the purpose of a form field's ‘readonly’ ‘value’, or ‘checked’ attributes? "
+  },
+
+  {
+    "skill": "html",
+    "description": "Can answer: When should you use GET or POST as a form's method attribute?"
+  },
+
+  {
+    "skill": "html",
+    "description": "Can: answer: What are some ways to make an HTML form more accessible to someone who needs to use a screen reader?"
+  },
+
+  {
+    "skill": "html",
+    "description": "Can: manually locate the source of a specific piece of text from a page's rendered view in the source HTML, for a simple case."
+  },
+
+  {
+    "skill": "html",
+    "description": "Can: use the browser's inspector to automatically locate the corresponding source for a given element of the rendered view."
+  },
+
+  {
+    "skill": "html",
+    "description": "Can: discover the current box model attributes of an element, using the inspector."
+  },
+
+  {
+    "skill": "css",
+    "description": " Can answer: What is a selector in CSS?"
+  },
+
+  {
+    "skill": "css",
+    "description": "Can answer: What is the difference between a tag, class, and ID selector?"
+  },
+
+  {
+    "skill": "css",
+    "description": "Can answer: What is an attribute selector in CSS and how does it relate to the HTML code?"
+  },
+
+  {
+    "skill": "css",
+    "description": "Can: recognise some simple attribute selectors and state their purpose."
+  },
+
+  {
+    "skill": "css",
+    "description": " Can answer: What is a property in CSS?"
+  },
+  {
+    "skill": "css",
+    "description": "Can answer: What is the cascade?"
+  },
+  {
+    "skill": "css",
+    "description": "Can answer: What is the CSS box model?"
+  },
+
+  {
+    "skill": "css",
+    "description": "Can answer: What properties modify the box model in CSS?"
+  },
+
+  {
+    "skill": "css",
+    "description": "Can: identify a diverse set of devices for the web (phone, tablet, laptop, desktop, tv, game console, etc.)"
+  },
+  {
+    "skill": "css",
+    "description": "Can answer: What is responsive web design?"
+  },
+
+  {
+    "skill": "css",
+    "description": "Can answer: what are some ways we might want to have a layout change as we reduce or increase screen size?"
+  },
+
+  {
+    "skill": "css",
+    "description": "Can answer: What is a media query?"
+  },
+
+  {
+    "skill": "css",
+    "description": "Can answer: When would you use a media query?"
+  },
+
+  {
+    "skill": "css",
+    "description": "Can answer: How can I test how a website looks on different screen sizes?"
+  },
+
+  {
+    "skill": "css",
+    "description": "Can answer: What is flexbox?"
+  },
+  {
+    "skill": "css",
+    "description": "Can answer: When would you use flexbox?"
+  },
+  {
+    "skill": "css",
+    "description": "Can answer: What are the different ways to arrange elements using flexbox?"
+  },
+  {
+    "skill": "css",
+    "description": "Can answer: In what ways can you position individual items using flexbox?"
+  },
+  {
+    "skill": "css",
+    "description": "Can answer: In what ways can you position individual items using flexbox?"
+  },
+
+  {
+    "skill": "git",
+    "description": "Can: Explain why Git is a useful tool."
+  },
+
+  {
+    "skill": "git",
+    "description": "Can clone a repository."
+  },
+
+  {
+    "skill": "git",
+    "description": "Can: commit, fork a repository, and push changes."
+  },
+
+  {
+    "skill": "git",
+    "description": "Can: use GitHub's pull request workflows, and push further changes."
+  },
+
+  {
+    "skill": "git",
+    "description": "Can: use Git's history log."
+  },
+
+  {
+    "skill": "git",
+    "description": "Can: fork a project on GitHub"
+  },
+
+  {
+    "skill": "git",
+    "description": "Can: commit changes locally and push to their fork"
+  },
+  {
+    "skill": "git",
+    "description": "Git Merge Conflicts"
+  },
+
+  {
+    "skill": "javascript",
+    "description": "Can use console.log() to print information to the console"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can assign data to variables using let and const"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can define what expressions and statements are and describe the difference"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can write and call functions in JavaScript"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can manipulate strings with concatenation and interpolation techniques"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can manipulate numbers with mathematical operators and using the Math library"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can define the difference between console.log() and return"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can call functions within functions"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can search and read documentation to help when you are stuck"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can define what was a conditional is"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can define what for and while loops are and define the difference"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can write an if statement using a conditional"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can define comparator operators and list the different types"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can use comparator operators in an if statement"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can define what a logical operator is and give examples"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can write functionality that uses the assert module"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can describe what an array is and write code that interacts with them"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can Describe what an array method is and use them to manipulate an array"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can write code that chains array methods together"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can define what a callback is"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can write code that uses a callback to run code"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can define what an anonymous function is"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can write code that uses an anonymous function as a callback"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can define what an object is in JavaScript"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can be able to write code that can use an object to store data"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can be able to write code that changes the properties of an object"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can Be able to write code that can retrieve data from an object"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can write and call methods inside JavaScript objects"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can use Objects when contained inside an array"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can write code that uses objects built-in methods"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can write code that can iterate through an object"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can define what the DOM is and what it does"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can use query selectors to retrieve elements from the DOM"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can use event listeners to respond to events that happen on the DOM"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can create DOM elements using JavaScript and add them to the DOM"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can manipulate DOM elements using JavaScript to change their properties"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can define the difference between synchronous and asynchronous code"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can describe why writing asynchronous code is important when working with the internet"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can write code that is able to pass a function to another function as a parameter and run it"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can use callbacks to run code at some point in the future"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can define a client's and server's role in the client/server architecture"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can describe the difference between a GET and POST request"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can explain how resources are loaded on the internet using GET and POST"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can list the steps that a browser does when loading a website from the internet"
+  },
+
+  {
+    "skill": "javascript",
+    "description": "Can understand the value of thorough and comprehensive debugging"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can use error messages to debug simple logical or syntactical errors in their code"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can modify an existing program to solve errors"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can answer : what the acronym API means"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can define what an API's purpose is and why it is useful"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can edit the structure of a API URL and to change the data retrieved from the server"
+  },
+  {
+    "skill": "javascript",
+    "description": "The learner should be able to define what a Promise is"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can answer: what fetch is and what it is used for"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can use fetch to retrieve JSON from an API"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can parse the JSON and extract data from it"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can use DOM manipulation to add content to the DOM"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can understand window.onload and document.onload and should be able to assign functions to run at specific life cycle events"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can understand the concept of variable scope and be able to define them in global, local and block scope"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can use destructuring to extract data from arrays"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can describe why you would want to use array destructuring"
+  },
+  {
+    "skill": "javascript",
+    "description": "Can describe why you would want to use array destructuring"
+  },
+
+  {
+    "skill": "react",
+    "description": "Create a React application with create-react-app"
+  },
+  {
+    "skill": "react",
+    "description": "Create a React function component"
+  },
+  {
+    "skill": "react",
+    "description": "Can use interpolation ({}) to insert JavaScript expressions into JSX"
+  },
+  {
+    "skill": "react",
+    "description": "Can distinguish between them when reading"
+  },
+  {
+    "skill": "react",
+    "description": "Can render a list using the .map method"
+  },
+  {
+    "skill": "react",
+    "description": "Can render components conditionally using ternary operator and logical AND (&&)"
+  },
+  {
+    "skill": "react",
+    "description": "Can add styles to elements using className (instead of class attribute)"
+  },
+  {
+    "skill": "react",
+    "description": "Can explain why calling event handlers in JSX (e.g. onClick={handleClick()}) is incorrect"
+  },
+  {
+    "skill": "react",
+    "description": "Can pass functions to event handlers"
+  },
+  {
+    "skill": "react",
+    "description": "Can log to the console when a button is clicked"
+  },
+  {
+    "skill": "react",
+    "description": "Can pass a props"
+  },
+  {
+    "skill": "react",
+    "description": "Can explain that React handles updating the DOM when components are re-rendered."
+  },
+  {
+    "skill": "react",
+    "description": "Can explain that this makes code more understandable, as we don't need to worry about managing the DOM."
+  },
+  {
+    "skill": "react",
+    "description": "Can import useState from the React package."
+  },
+  {
+    "skill": "react",
+    "description": "Can initialise with a value with useState(initialValue)."
+  },
+  {
+    "skill": "react",
+    "description": "Can destructure state variable into [stateValue, setStateValue]."
+  },
+  {
+    "skill": "react",
+    "description": "Can render state variables to the view."
+  },
+  {
+    "skill": "react",
+    "description": "Can update with a new value with setStateValue(newValue)."
+  },
+  {
+    "skill": "react",
+    "description": "Can identify when to use props or state."
+  },
+  {
+    "skill": "react",
+    "description": "Can explain why a loading state is necessary when fetching data as the result is not available on the initial render."
+  },
+  {
+    "skill": "react",
+    "description": "Can trigger fetch() using the useEffect() callback, with an empty array ([]) as the 2nd dependencies argument."
+  },
+  {
+    "skill": "react",
+    "description": "Can store data from a successful API call in state."
+  },
+  {
+    "skill": "react",
+    "description": "Can explain why a component with an effect dependent on props is broken with empty useEffect() dependencies ([])."
+  },
+  {
+    "skill": "react",
+    "description": "Can fix a component with an effect dependent on props using the useEffect() dependencies."
+  },
+
+  {
+    "skill": "react",
+    "description": "Can describe the 'lifecycle' of a component with useEffect() when props change."
+  },
+  {
+    "skill": "react",
+    "description": "Can Create a simple form in React using the controlled component pattern."
+  },
+  {
+    "skill": "react",
+    "description": "Can initialise state with useState()."
+  },
+  {
+    "skill": "react",
+    "description": "Can set the input value to the state variable."
+  },
+  {
+    "skill": "react",
+    "description": "Can explain why the input does not change when typing if onChange is not set."
+  },
+  {
+    "skill": "react",
+    "description": "Can update the state using an onChange handler."
+  },
+  {
+    "skill": "react",
+    "description": "Can use data from a submitted form to update the application."
+  },
+  {
+    "skill": "react",
+    "description": "Can collect the form state variables and use them (setting state, POST request)."
+  },
+
+  {
+    "skill": "node",
+    "description": "Can define what an API is used for"
+  },
+  {
+    "skill": "node",
+    "description": "Can use Glitch to deploy and edit express servers"
+  },
+
+  {
+    "skill": "node",
+    "description": "Can use ‘npm’ to start a node server"
+  },
+  {
+    "skill": "node",
+    "description": "Can: Explain what ‘express’ is and what it is used for"
+  },
+  {
+    "skill": "node",
+    "description": "Can use express to create an API that will accept a ‘GET’ request that returns JSON"
+  },
+
+  {
+    "skill": "node",
+    "description": "Can: implement routing to return different resources depending on URL"
+  },
+
+  {
+    "skill": "node",
+    "description": "Can: implement query params to return different content ‘(?query=ses)’"
+  },
+  {
+    "skill": "node",
+    "description": "Can: Define what each part of CRUD is and what it does"
+  },
+
+  {
+    "skill": "node",
+    "description": "Can: Process a GET request using Express and Node to retrieve data from memory"
+  },
+
+  {
+    "skill": "node",
+    "description": "Can: Process a POST request using Express and Node and store data in memory"
+  },
+
+  {
+    "skill": "node",
+    "description": "Can: Process a DELETE request using Express and Node to remove data from memory"
+  },
+
+  {
+    "skill": "node",
+    "description": "Can: Install a third party library using npm"
+  },
+
+  {
+    "skill": "node",
+    "description": "Can: Process an PUT request using Express and Node to update data in memory"
+  },
+
+  {
+    "skill": "node",
+    "description": "Can: Upload their node app to the internet so it can be accessed anywhere using Heroku"
+  },
+
+  {
+    "skill": "sql",
+    "description": "Can explain why databases are needed in Web Development"
+  },
+  {
+    "skill": "sql",
+    "description": "Can define what SQL is and what it is used for"
+  },
+  {
+    "skill": "sql",
+    "description": "Can describe what table, rows and columns are used for in a relational database"
+  },
+  {
+    "skill": "sql",
+    "description": "Can install and create a database using PostgreSQL"
+  },
+  {
+    "skill": "sql",
+    "description": "Can create a table in a database using PostgreSQL"
+  },
+  {
+    "skill": "sql",
+    "description": "Can insert data into a table using PostgreSQL"
+  },
+  {
+    "skill": "sql",
+    "description": "Can retrieve data from a table using PostgreSQL"
+  },
+  {
+    "skill": "sql",
+    "description": "Can retrieve data from a table using conditionals in PostgreSQL"
+  },
+  {
+    "skill": "sql",
+    "description": "Can list the different kinds of data that can be held in a PostgreSQL database"
+  },
+  {
+    "skill": "sql",
+    "description": "Can add and remove columns in a pre-existing table using PostgreSQL using ALTER"
+  },
+  {
+    "skill": "sql",
+    "description": "Be able to rename tables and columns in a pre-existing table using PostgreSQL using DELETE"
+  },
+  {
+    "skill": "sql",
+    "description": "Can update rows in a pre-existing table using PostgreSQL using UPDATE"
+  },
+  {
+    "skill": "sql",
+    "description": "Can combine tables together using PostgreSQL using INNER JOIN"
+  },
+  {
+    "skill": "sql",
+    "description": "Can connect a PostgreSQL database to a NodeJS application"
+  },
+  {
+    "skill": "sql",
+    "description": "Can retrieve data from a PostgreSQL database in a NodeJS application"
+  },
+  {
+    "skill": "sql",
+    "description": "Can create an API endpoint that can add data to a database"
+  },
+  {
+    "skill": "sql",
+    "description": "Can write code that effectively validates data before adding it to a database"
+  },
+  {
+    "skill": "sql",
+    "description": "Can be dangers of SQL injection attacks, and how to avoid them"
+  },
+  {
+    "skill": "sql",
+    "description": "Can create an API endpoint that can retrieve data from a database with multiple parameters"
+  },
+  {
+    "skill": "sql",
+    "description": "Can create an API endpoint that can update data in a database"
+  },
+  {
+    "skill": "sql",
+    "description": "Can Create an API endpoint that can delete data in a database"
+  }
+]

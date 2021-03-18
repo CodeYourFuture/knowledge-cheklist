@@ -5,6 +5,9 @@ import "../App.css";
 import validate from "./SignupValidation";
 import Footer from "./Footer";
 import Header from "./Header";
+import useQuery from "../components/useQuery";
+import CityDropDownOptions from "./CityDropDownOptions";
+
 const SignupForm = () => {
   const [hasRegistered, setHasRegistered] = useState(false);
   const [serverError, setServerError] = useState("");
@@ -14,13 +17,12 @@ const SignupForm = () => {
     lastName: "",
     userRole: "",
     userEmail: "",
-    userPassword: "",
-    confirmPassword: "",
     cyfCity: "",
     userClassId: "",
-    userGithub: "",
+    userGithub: useQuery("githubUserName") ?? "",
     userSlack: "",
   };
+
   const {
     handleChange,
     input,
@@ -28,7 +30,6 @@ const SignupForm = () => {
     errors,
     isValid,
   } = useFormValidation(validate, intialState);
-  console.log(errors);
 
   useEffect(() => {
     if (isValid) {
@@ -43,7 +44,6 @@ const SignupForm = () => {
           userRole: input.userRole,
           userEmail: input.userEmail,
           userSlack: input.userSlack,
-          userPassword: input.userPassword,
           userGithub: input.userGithub,
           userClassId: input.userClassId,
           cyfCity: input.cyfCity,
@@ -54,11 +54,6 @@ const SignupForm = () => {
           if (data.error) {
             throw new Error(data.error);
           }
-          window.localStorage.setItem("token", data.token);
-
-          window.localStorage.setItem("user", data.id);
-          window.localStorage.setItem("role", data.role);
-          window.localStorage.setItem("name", data.name);
           setHasRegistered(true);
         })
         .catch((error) => {
@@ -115,48 +110,7 @@ const SignupForm = () => {
               {errors.userEmail && (
                 <p className="error">*{errors.userEmail} </p>
               )}
-              <label for="userPassword">Password</label>
-              <input
-                type="password"
-                placeholder="Password"
-                value={input.userPassword}
-                onChange={handleChange}
-                name="userPassword"
-              />
-              {errors.userPassword && (
-                <p className="error">*{errors.userPassword} </p>
-              )}
-              <label for="">Confirm Password</label>
-              <input
-                type="password"
-                placeholder="Confirm Password"
-                value={input.confirmPassword}
-                onChange={handleChange}
-                name="confirmPassword"
-              />
-              {errors.confirmPassword && (
-                <p className="error">*{errors.confirmPassword} </p>
-              )}
-              <label for="cyfCity">City</label>
-              <input
-                type="text"
-                placeholder="City"
-                value={input.cyfCity}
-                onChange={handleChange}
-                name="cyfCity"
-              />
-              {errors.cyfCity && <p className="error">*{errors.cyfCity} </p>}
-              <label for="userClassId">Class</label>
-              <input
-                type="number"
-                placeholder="Class"
-                value={input.userClassId}
-                onChange={handleChange}
-                name="userClassId"
-              />
-              {errors.userClassId && (
-                <p className="error">*{errors.userClassId} </p>
-              )}
+
               <label for="userGithub">Github Name</label>
               <input
                 type="text"
@@ -173,9 +127,17 @@ const SignupForm = () => {
                 onChange={handleChange}
                 name="userSlack"
               />
+              <CityDropDownOptions
+                city={input.cyfCity}
+                handleChange={handleChange}
+              />
 
               <label for="userRole">Please select a role</label>
-              <select name="userRole" onChange={handleChange}>
+              <select
+                className="role-select"
+                name="userRole"
+                onChange={handleChange}
+              >
                 <option value="select">Select</option>
                 <option value="Student">Student</option>
                 <option value="Mentor">Mentor</option>

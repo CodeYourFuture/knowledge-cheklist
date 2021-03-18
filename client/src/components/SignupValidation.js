@@ -1,5 +1,5 @@
 export default function SignupValidation(input, isValid) {
-  console.log(isValid);
+
 
   let errors = {};
 
@@ -12,18 +12,6 @@ export default function SignupValidation(input, isValid) {
   } else if (!/\S+@\S+\.\S+/.test(input.userEmail)) {
     errors.userEmail = "Email address is invalid";
   }
-
-  if (!input.userPassword) {
-    errors.userPassword = "Password id required";
-  } else if (input.userPassword.length < 2) {
-    errors.userPassword = "Password need to be 6 characters or more";
-  }
-  if (!input.confirmPassword) {
-    errors.confirmPassword = "Password is required";
-  } else if (input.confirmPassword !== input.userPassword) {
-    errors.confirmPassword = "Password do not match";
-  }
-
   if (!input.cyfCity.trim()) {
     errors.cyfCity = "city required";
   }

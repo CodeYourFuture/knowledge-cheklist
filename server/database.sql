@@ -117,3 +117,6 @@ INSERT into learning_objective(skill, description)
       ('sql', 'Be able to delete rows'),
       ('sql', 'Be able to join tables');
 
+--Altered the user table 
+ALTER TABLE users ADD COLUMN github_id INT;
+create UNIQUE index on users (github_id);
