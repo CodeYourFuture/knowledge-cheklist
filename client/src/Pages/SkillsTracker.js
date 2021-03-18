@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import ProgressTrackingButtons from "../components/ProgressTrackingButtons";
 
 export default function Html({ skill }) {
- 
   const [learningObjectives, setLearningObjectives] = useState([]);
   const fetchLearningObj = () => {
     fetch(`/api/learningobjectives/${skill}`)
@@ -47,27 +46,26 @@ export default function Html({ skill }) {
   return (
     <div className="learning-objective-container">
       <ul>
-        {learningObjectives.map(({ description, id, ability, student_id }, index) => {
-          function updateAbility(newAbility) {
-            updateAchievement(newAbility, id)
-  
-          }
-      
-       
-          return (
-            <li key={index}>
-              {description}
+        {learningObjectives.map(
+          ({ description, id, ability, student_id }, index) => {
+            function updateAbility(newAbility) {
+              updateAchievement(newAbility, id);
+            }
 
-              <ProgressTrackingButtons
-             
-                ability={ability}
-                updateAbility={updateAbility}
-                learningObjId={id}
-                student_id={student_id}
-              />
-            </li>
-          );
-        })}
+            return (
+              <li key={index}>
+                {description}
+
+                <ProgressTrackingButtons
+                  ability={ability}
+                  updateAbility={updateAbility}
+                  learningObjId={id}
+                  student_id={student_id}
+                />
+              </li>
+            );
+          }
+        )}
       </ul>
     </div>
   );

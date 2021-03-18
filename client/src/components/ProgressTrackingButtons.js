@@ -5,8 +5,7 @@ export default function ProgressTrackingButtons({
   ability,
   updateAbility,
 }) {
- 
- 
+
   return (
     <div className="btn-container">
       <TrackBtn
