@@ -1,0 +1,31 @@
+
+{
+"defaultEnv": "local",
+  
+  "local": {
+    "driver": "pg",
+    "user": {"ENV": "db_user"},
+    "password": {"ENV": "db_password"},
+    "host": "localhost",
+    "database": "cyf_knowledge_checklist",
+    "port": {"ENV": "db_port"}  
+
+  },
+
+  "dev": {
+    "driver": "pg",
+    "url": {"ENV": "DATABASE_URL"},
+    "ssl": {
+      "rejectUnauthorized": false
+    }
+  },
+
+  "production": {
+    "driver": "pg",
+    "user": {"ENV": "db_name"},
+    "password": {"ENV": "db_password"},
+    "host": {"ENV": "db_host"},
+    "database": {"ENV": "db_database"},
+    "port": {"ENV": "db_port"} 
+  }
+}

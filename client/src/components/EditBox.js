@@ -1,27 +1,23 @@
 import React, { useState, useEffect } from "react";
-import fakeData from "../fakeData.json";
-import AddForm from "./AddForm";
+
+import LearningObjectiveAddForm from "./LearningObjectiveAddForm";
+
 import { useParams } from "react-router-dom";
 
 export default function EditBox() {
   let { id } = useParams();
-  const skills = fakeData[id];
-  const [deleted, setDeleted] = useState(skills);
-  // const [learningObjective, setLearningObjective] = useState(skills);
   const [learningObj, setLearningObj] = useState([]);
   const [updateLO, setUpdateLO] = useState("");
   const [text, setText] = useState("");
 
-  const token = window.localStorage.getItem("token");
-
   const getLearningObj = () => {
-    fetch(`/api/learningobjectives/${id}`, { headers: { token } })
+    fetch(`/api/learningobjectives/${id}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.error) {
           throw data;
         }
-        console.log(data);
+
         setLearningObj(data);
       });
   };
@@ -32,9 +28,6 @@ export default function EditBox() {
   const deleteLearningOb = (LearningID) => {
     fetch(`/api/learningobjectives/${LearningID}`, {
       method: "DELETE",
-      headers: {
-        token,
-      },
     }).then(() => {
       let newData = learningObj.filter((p) => p.id !== LearningID);
       setLearningObj(newData);
@@ -50,7 +43,6 @@ export default function EditBox() {
         }),
         headers: {
           "Content-Type": "application/json",
-          token,
         },
       })
         .then((res) => res.json())
@@ -63,7 +55,6 @@ export default function EditBox() {
   };
 
   const handleEdit = (description, id) => {
-    console.log("head", id);
     setUpdateLO(id);
     setText(description);
   };
@@ -71,10 +62,7 @@ export default function EditBox() {
     setUpdateLO("");
     getLearningObj();
   };
-  console.log(learningObj);
-  // const addLearningObjective = (description) => {
-  //   setLearningObjective(skills.push(description));
-  // };
+
   return (
     <div className="lo-wrapper">
       <h2 className="skill-name"></h2>
@@ -84,8 +72,6 @@ export default function EditBox() {
             return (
               <li key={index}>
                 <div className="edit-delete-buttons">
-                  {console.log("here is update", updateLO, id)}
-
                   {updateLO == id ? (
                     <textarea
                       className="app-message__input"
@@ -144,7 +130,7 @@ export default function EditBox() {
           })}
         </ul>
         <div className="add-btn-container">
-          <AddForm getLearningObj={getLearningObj} />
+          <LearningObjectiveAddForm getLearningObj={getLearningObj} />
         </div>
       </div>
     </div>

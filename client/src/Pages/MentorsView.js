@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from "react";
-import dataTesting from "../dataTesting.json";
-import BoxDisplay from "../components/BoxDisplay";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import StudentResultsContainer from "../components/StudentResultsContainer";
+import { Link, useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
+import useQuery from "../components/useQuery";
 
 function MentorsView() {
   const [studentList, setStudentList] = useState([]);
+  const [bg, setBg] = useState("");
 
   let history = useHistory();
-  const token = window.localStorage.getItem("token");
+  const [mentorName, setMentorName] = useState(null);
+
   useEffect(() => {
-    console.log(token);
-    if (!token) {
-      history.push("/");
-    }
-    fetch(`/api/verify`, { headers: { token } })
+    fetch(`/api/verify`)
       .then((res) => {
         if (res.status !== 200) {
           history.push("/");
@@ -27,8 +21,7 @@ function MentorsView() {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
-        window.localStorage.setItem("role", data.role);
+        setMentorName(data.name);
         if (data == "not authorized" || data.role == "Student") {
           history.push("/");
         }
@@ -37,7 +30,7 @@ function MentorsView() {
   }, []);
 
   useEffect(() => {
-    fetch(`/api/students`, { headers: { token } })
+    fetch(`/api/students`)
       .then((res) => res.json())
       .then((data) => {
         setStudentList(data);
@@ -45,8 +38,7 @@ function MentorsView() {
   }, []);
 
   let studentName = "";
-  console.log(studentList);
-  const studentId = useQuery().get("studentId");
+  const studentId = useQuery("studentId");
   if (studentId && studentList) {
     const student = studentList.filter(
       (student) => student.user_id == studentId
@@ -56,73 +48,54 @@ function MentorsView() {
       studentName = `${student.first_name} ${student.last_name}`;
     }
   }
-  console.log(studentList);
-
-  // let editLoImg =  <img
-  //         className="edit-btn crud"
-  //         src="https://i.ibb.co/nrkVG9b/edit-1.png"
-  //         alt="edit"
-  //         border="0"
-  //       ></img>
   const editLearningObjectives = (
-    <a href="/mentorsedit" className="signup-link">
+    <a className="student-progress" href="/MentorsEditLearningObj">
       Edit Learning Objectives
-    </a>
-  );
-  let logout = (
-    <a href="/">
-      <img
-        src="https://www.flaticon.com/svg/static/icons/svg/159/159707.svg"
-        alt="logout"
-        className="logout-img"
-      ></img>
     </a>
   );
 
   return (
     <div className="mentorsview-page">
-      <Header editLearningObjectives={editLearningObjectives} logout={logout} />
-      <h1 className="welcome-msg">
-        Welcome {window.localStorage.getItem("name")}
-      </h1>
-      <div className="main-container">
+      <Header editLearningObjectives={editLearningObjectives} />
+      <h1 className="welcome-msg">Welcome {mentorName}😊</h1>
+      <div className="main-container-mentorView">
         <div className="studentName-Container">
-          {/* <ul>
-            {studentList.map(({ user_id, first_name, last_name }) => {
-              return (
-                <li key={user_id} className="students-name">
-                  <Link
-                    to={`./MentorsView?studentId=${user_id}`}
-                    className="name-list"
-                  >
-                    {`${first_name} ${last_name}`}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul> */}
-          {studentId && (
-            <div className="box-display-component">
-              <BoxDisplay studentId={studentId} studentName={studentName} />
-            </div>
-          )}
           <h2 className="mentor-greet">Students List:</h2>
           <ul className="student-list">
             {studentList.map(({ user_id, first_name, last_name }) => {
               return (
                 <li key={user_id} className="students-name">
                   <Link
+                    onClick={() => setBg({ activeIndex: user_id })}
                     to={`./MentorsView?studentId=${user_id}`}
-                    className="name-list"
+                    className="name-list d-flex"
                   >
-                    {`${first_name} ${last_name}`}
+                    <div
+                      className={`${
+                        user_id == bg.activeIndex ? "active" : "inactive"
+                      }`}
+                    >
+                      <div>{`${first_name} ${last_name}`}</div>
+                      <div className="icon">
+                        <i class="fas fa-arrow-right "></i>
+                      </div>
+                    </div>
                   </Link>
                 </li>
               );
             })}
           </ul>
         </div>
+        {studentId && (
+          <div className="box-display-component">
+            <StudentResultsContainer
+              studentId={studentId}
+              studentName={studentName}
+            />
+          </div>
+        )}
       </div>
+
       <Footer />
     </div>
   );
