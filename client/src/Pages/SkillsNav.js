@@ -4,15 +4,10 @@ import { useHistory, Route, NavLink } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { skills, skillLabel } from "../components/consts/skillsConst";
-
 export default function SkillsNav() {
   let history = useHistory();
   const [userName, setUserName] = useState({});
-
-
-
-
-
+  console.log(skillLabel("css"));
   useEffect(() => {
     fetch(`/api/verify`)
       .then((res) => {
@@ -28,13 +23,12 @@ export default function SkillsNav() {
         }
       });
   }, []);
-
   return (
     <div className="skillsnav-page">
       <div>
         <Header />
       </div>
-      <h1 className="welcome-msg">Welcome {userName.name}😊</h1>
+      <h1 className="welcome-msg">Welcome {userName.name}</h1>
       <div className="skills-main-container">
         <div className="skills-container">
           {skills.map((skill, index) => (
@@ -48,7 +42,6 @@ export default function SkillsNav() {
             </NavLink>
           ))}
         </div>
-
         <div>
           {skills.map((skill, index) => (
             <Route
