@@ -151,13 +151,9 @@ router.post("/abilities", authorization, async (req, res) => {
   if (results.rowCount > 0) {
     await Connection.query(queryUpdate, [ability, learning_obj_id, student_id]);
     res.json("updated");
-  }
-  
-  
-  else {
+  } else {
     await Connection.query(queryPost, [ability, learning_obj_id, student_id]);
     res.json("inserted");
-    console.log("insert", ability);
   }
 });
 

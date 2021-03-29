@@ -61,9 +61,7 @@ const SignupForm = () => {
         });
     }
   }, [isValid]);
-  console.log(intialState);
-  console.log(input.cyfCity);
-  console.log(input.userClassId);
+
   return (
     <div>
       <Header />

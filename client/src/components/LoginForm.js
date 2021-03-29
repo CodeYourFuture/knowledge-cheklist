@@ -15,7 +15,6 @@ export default function LoginForm() {
       .then((res) => res.json())
       .then((data) => {
         setClientId(data.github_client_id);
-        console.log(data);
       });
   };
 
