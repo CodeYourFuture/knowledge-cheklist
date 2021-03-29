@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Container, btn } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Footer from "./Footer";
 import Header from "./Header";
 import LoginImage from "../login-image.jpg";
 import "../App.css";
-const { REACT_APP_GITHUB_CLIENT_ID } = process.env;
-const githubCallBackLink = `https://github.com/login/oauth/authorize?client_id=${REACT_APP_GITHUB_CLIENT_ID}`;
 
 export default function LoginForm() {
-  const [clientId, setClientId] = useState(null);
+  const [clientId, setClientId] = useState();
 
   const getClientId = () => {
     fetch("/api/github-client-id")
@@ -36,7 +34,7 @@ export default function LoginForm() {
             href={`https://github.com/login/oauth/authorize?client_id=${clientId}`}
             className="register text-white btn btn-dark   text-center "
           >
-            <i class="fab fa-github"></i> Sign in with Github
+            <i className="fab fa-github"></i> Sign in with Github
           </a>
         </div>
       </Container>

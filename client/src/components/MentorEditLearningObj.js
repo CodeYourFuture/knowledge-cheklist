@@ -23,7 +23,7 @@ export default function EditBox() {
   };
   useEffect(() => {
     getLearningObj();
-  }, [id]);
+  }, [skill]);
 
   const deleteLearningOb = (LearningID) => {
     fetch(`/api/learningobjectives/${LearningID}`, {

@@ -21,6 +21,21 @@ jobs:
           name: Docker push frontend
           command: docker push codeyourfuture/knowledge-checklist
 
+  db-build:
+    docker:
+      - image: circleci/node:12.18.3
+    steps:
+      - checkout
+      - run:
+          name: install packages
+          command: npm ci
+      - run:
+          name: deploy db
+          command: npm run db-migrate-production
+      - run:
+          name: load learning objectives
+          command: npm run db-loadfixtures-production
+
   deploy_production:
     docker:
       - image: circleci/python:2.7-jessie
@@ -58,6 +73,14 @@ workflows:
       - build:
           context: build
       - deploy_production:
+          context: deployments
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
+      - db-build:
           context: deployments
           requires:
             - build

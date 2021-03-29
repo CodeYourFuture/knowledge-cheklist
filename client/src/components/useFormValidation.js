@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function useFormValidation(validate, intialState) {
   const [errors, setErrors] = useState({});
@@ -21,7 +21,6 @@ function useFormValidation(validate, intialState) {
     setErrors(newError);
 
     if (JSON.stringify(newError) == JSON.stringify({})) {
-      //setInput(intialState);
       setIsValid(true);
     }
   }
