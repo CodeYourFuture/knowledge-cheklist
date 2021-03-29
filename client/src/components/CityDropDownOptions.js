@@ -9,6 +9,7 @@ export default function CityDropDownOptions({ city, handleChange }) {
     Scotland: [1, 2, 3, 4, 5],
     "West Midlands": [1, 2, 3, 4],
   };
+
   const cityDropDown = () => {
     if (city) {
       return (

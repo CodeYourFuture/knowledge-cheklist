@@ -19,7 +19,7 @@ function useFormValidation(validate, intialState) {
 
     const newError = validate(input, isValid);
     setErrors(newError);
-  
+
     if (JSON.stringify(newError) == JSON.stringify({})) {
       setIsValid(true);
     }

@@ -1,6 +1,5 @@
 export default function SignupValidation(input, isValid) {
 
-
   let errors = {};
 
   if (!input.firstName.trim()) {

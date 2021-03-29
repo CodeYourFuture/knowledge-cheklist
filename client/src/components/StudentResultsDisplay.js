@@ -1,6 +1,6 @@
 import React from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
-import {skills, skillLabel} from "./consts/skillsConst"
+import { skills, skillLabel } from "./consts/skillsConst";
 export default function StudentResultsDisplay({ studentDetail }) {
   // Displays what the student selected as his/her condifence level
 
@@ -85,7 +85,7 @@ export default function StudentResultsDisplay({ studentDetail }) {
   return (
     <Accordion>
       {skills.map((skill, index) => {
-      
+
         return (
           <Card>
             <Card.Header>
